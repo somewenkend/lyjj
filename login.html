@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>洛阳市老城区民营经济服务平台</title>
+    <link rel="stylesheet" type="text/css" href="/plugin/basic/css/min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/page.css" />
+    <script src="/plugin/basic/js/min.js"></script>
+    <script src="/js/jquery.validate.min.js"></script>
+    <script src="/js/common.js"></script>
+    <style>
+        .bg-box{
+            position: absolute;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            z-index: -1;
+            height: calc(100% - 70px);
+            background-image: url(/img/login_bg.png);
+            background-position-y: bottom;
+        }
+        .login-box{
+            position: absolute;
+            top: 150px;
+            margin-left: calc(50% - 200px);
+            width: 400px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: calc(50vh - 380px);
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-box"></div>
+    <div class="container pr">
+        <div class="top">
+           <h2>洛阳市老城区民营经济服务平台</h2>
+        </div>
+        <div class="content">
+            <div class="login-box">
+                <h3 class="mb20">登录</h3>
+                <form id="loginForm">
+                    <div class="form-horizon form-group">
+                        <i class="fa fa-user mr10 f18" style="line-height: 34px;"></i>
+                        <div class="el w">
+                            <input autocomplete="off" class="form-control w" placeholder="请输入用户名" type="text" name="name" />
+                        </div>
+                    </div>
+                    <div class="form-horizon form-group">
+                        <i class="fa fa-lock mr10 f18" style="line-height: 34px;"></i>
+                        <div class="el w">
+                            <input autocomplete="off" class="form-control" placeholder="请输入密码" type="password" name="password" />
+                            <a href="#" class="fr mt3">忘记密码？</a>
+                        </div>
+                    </div>
+                    <button class="btn btn-info btn-block" type="button" onclick="login()">登录</button>
+                    <p class="mt5">还没有账号？<a href="#">去注册</a></p>
+                    <h6 style="margin-top: 10px; text-align: center; color: #999;">为保证系统稳定，建议使用chrome浏览器</h6>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function() {
+            verify();
+        });
+
+        // 登录
+        function login() {
+            if (!verify().form()) {
+                return;
+            }
+        }
+
+        // 表单校验
+        function verify() {
+            return $("#loginForm").validate({
+                rules: {
+                    name: "required",
+                    password: "required"
+                },
+                messages: {
+                    name: "请输入账号",
+                    password: "请输入密码"
+                }
+            })
+        }
+    </script>
+</body>
+</html>
