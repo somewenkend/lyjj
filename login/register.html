@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>洛阳市老城区民营经济服务平台</title>
+    <link rel="stylesheet" type="text/css" href="/plugin/basic/css/min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/page.css" />
+    <script src="/plugin/basic/js/min.js"></script>
+    <script src="/js/jquery.validate.min.js"></script>
+    <script src="/js/common.js"></script>
+    <style>
+        #seconde{display: inline-block; width: 20px;}
+        .step-box{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: 30px;
+            grid-column-gap: 4px;
+        }
+        .step-box > .step{
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            background-color: rgba(102, 193, 207, 0.46);
+            color: #09a2b9;
+        }
+        .step-box > .step.active{background-color: #0fa3b9; color: #fff;}
+        .register-box{
+            width: 400px;
+            margin: auto;
+            margin-top: 30px;
+        }
+        .require-tip{color: #c00;}
+        .form-horizon > label{width: 80px; text-align: right; flex: none;}
+        .top{
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="top">
+        <h4>欢迎您来到洛阳市老城区民营经济服务平台！</h4>
+        <div class="link">
+            <a href="#" class="ml20">登录</a>
+            <a href="#" class="ml20">注册</a>
+            <a href="#" class="ml20">关于我们</a>
+            <a href="#" class="ml20">联系我们</a>
+        </div>
+    </div>
+</header>
+<article>
+    <div class="container pr">
+        <div class="content">
+            <div class="step-box">
+                <div class="step active">
+                    <span>创建用户</span>
+                </div>
+                <div class="step">
+                    <span>企业认证</span>
+                </div>
+                <div class="step">
+                    <span>信息审核</span>
+                </div>
+            </div>
+
+            <div class="register-box">
+                <form id="registerForm">
+                    <div class="form-horizon form-group">
+                        <label><span class="require-tip">*</span>手机号码：</label>
+                        <div class="el w">
+                            <input autocomplete="off" class="form-control w" placeholder="请输入手机号码" type="text" name="phone" />
+                        </div>
+                    </div>
+                    <div class="form-horizon form-group">
+                        <label><span class="require-tip">*</span>验证码：</label>
+                        <div class="el w">
+                            <input autocomplete="off" class="form-control" placeholder="请输入密码" type="text" name="code" />
+                        </div>
+                        <button class="btn btn-default ml5" id="codeBtn" type="button" onclick="getCode(this)">获取验证码</button>
+                    </div>
+                    <div class="form-horizon form-group">
+                        <label><span class="require-tip">*</span>密码：</label>
+                        <div class="el w">
+                            <input autocomplete="off" id="password" class="form-control w" placeholder="请输入密码" type="password" name="password" />
+                        </div>
+                    </div>
+                    <div class="form-horizon form-group">
+                        <label><span class="require-tip">*</span>确认密码：</label>
+                        <div class="el w">
+                            <input autocomplete="off" class="form-control w" placeholder="请再次输入密码" type="password" name="rePassword" />
+                        </div>
+                    </div>
+                    <button class="btn btn-info btn-block" type="button" onclick="createUser()">创建用户</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</article>
+<footer>
+    <div class="link-box">
+        <div class="row">
+            <div class="col-sm-4">
+                <p><a href="#">关于我们</a><a href="#" class="ml30">联系我们</a></p>
+                <p>建设单位：xxxxxxxxxxxx</p>
+                <p>技术支持：xxxxxxxxxxxx</p>
+            </div>
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <p>友情链接</p>
+                <p><a href="#">xxxxxxxxx</a></p>
+                <p><a href="#">xxxxxxxxx</a></p>
+                <p><a href="#">xxxxxxxxx</a></p>
+            </div>
+        </div>
+    </div>
+    <p class="copyright">版权说明</p>
+</footer>
+<script>
+    $(document).ready(function() {
+        verify();
+    });
+
+    // 创建用户
+    function createUser() {
+        if (!verify().form()) {
+            return;
+        }
+    }
+
+    // 表单校验
+    function verify() {
+        return $("#registerForm").validate({
+            rules: {
+                phone: "required",
+                code: "required",
+                password: "required",
+                rePassword: {
+                    required: true,
+                    equalTo: "#password"
+                }
+            },
+            messages: {
+                name: "请输入账号",
+                code: "请输入验证码",
+                password: "请输入密码",
+                rePassword: {
+                    required: "请再次输入密码",
+                    equalTo: "密码输入有误，请重新输入"
+                }
+            }
+        })
+    }
+
+    // 获取剩余秒数
+    var remainSeconde;
+    if (localStorage.getItem("remainSeconde") == 0 || localStorage.getItem("remainSeconde") == null) {
+        remainSeconde = 60;
+    } else {
+        remainSeconde = Number(localStorage.getItem("remainSeconde"));
+        codeTiming($("#codeBtn")[0]);
+    }
+    // 获取验证码
+    function getCode(el) {
+        // 校验手机号，正确的手机号才能获取验证码
+        if (!/^1[0-9]{10}$/.test($("[name=phone]").val())) {
+            alert("请填写正确格式的手机号");
+            return;
+        }
+        // 验证码计时
+        codeTiming(el);
+    }
+
+    // 验证码计时
+    var timer;
+    function codeTiming(el) {
+        // 先禁用按钮
+        $(el).btnDisabled(`重新发送<span id='seconde'>${remainSeconde}</span>s`);
+        timer = setInterval(function() {
+            remainSeconde -= 1;
+            if (remainSeconde > 1) {
+                $("#seconde").html(remainSeconde);
+            } else { // 恢复按钮可点击状态
+                remainSeconde = 0;
+                $(el).btnReset("获取验证码");
+                clearInterval(timer);
+            }
+            localStorage.setItem("remainSeconde", remainSeconde);
+        }, 1000);
+    }
+</script>
+</body>
+</html>

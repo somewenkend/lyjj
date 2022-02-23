@@ -908,3 +908,29 @@ div[id*=searchLoadData_]{position: absolute; display: none;  z-index: 2000; left
   }
   label.error{color: #c00; font-weight: normal; margin-top: 3px;}
   .mt3{margin-top: 3px;}
+
+  body{background-color: #fff; padding: 0;}
+  header, footer > .link-box{
+    background-color: #efefef;
+    padding: 20px 5%;
+  }
+  article{min-height: calc(100vh - 222px); padding: 30px 0;}
+  footer{color: #7d7d7d;}
+  footer .col-sm-4 > p:not(:last-child){margin-bottom: 5px;}
+  footer .copyright{text-align: center; padding: 5px; background-color: #e5e5e5; font-size: 12px;}
+  /*bootstrap4颜色*/
+  /*重要*/
+  .c-important{color: #007cff;} .c-important-bg{background-color: #007cff;}
+  /*成功*/
+  .c-success{color: #23a843;} .c-success-bg{background-color: #23a843;}
+  /*primary*/
+  .c-primary{color: #0fa3b9;} .c-primary-bg{background-color: #0fa3b9;}
+  /*warning*/
+  .c-warning{color: #ffc201;} .c-warning-bg{background-color: #ffc201;}
+  /*danger*/
+  .c-danger{color: #dd3243;} .c-danger-bg{background-color: #dd3243;}
+  /*gray*/
+  .c-gray{color: #878f97;} .c-gray-bg{background-color: #878f97;}
+  /*black*/
+  .c-black{color: #31373e;} .c-black-bg{background-color: #31373e;}
+  .form-horizon > label{height: 34px; line-height: 34px;}
