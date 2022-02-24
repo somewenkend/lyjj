@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>洛阳市老城区民营经济服务平台</title>
+    <link rel="stylesheet" type="text/css" href="/plugin/basic/css/min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/page.css" />
+    <script src="/plugin/basic/js/min.js"></script>
+    <script src="/js/jquery.validate.min.js"></script>
+    <script src="/js/common.js"></script>
+    <style>
+        .top{
+            display: flex;
+            justify-content: space-between;
+        }
+        .carousel-control.left, .carousel-control.right, .carousel-inner{border-radius: 7px; cursor: pointer;}
+        .carousel-caption{opacity: .8;}
+        .carousel-inner>.item>a>img, .carousel-inner>.item>img, .img-responsive, .thumbnail a>img, .thumbnail>img {
+            display: block;
+            object-fit: cover;
+            height: 260px;
+            width: 100%;
+        }
+        a.news{
+            display: block;
+            height: 20px;
+            color: #0a74e5;
+            height: 52px;
+            font-size: 16px;
+            line-height: 52px;
+            border-bottom: 1px solid #779ee1;
+            margin-left: 15px;
+        }
+        a.news span.fr{font-size: 14px; color: #6c95d3;}
+
+        .web-map{
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            grid-template-rows: 100px 100px;
+            grid-column-gap: 15px;
+            grid-row-gap: 15px;
+            margin-top: 80px;
+        }
+        .web-map .module{
+            border: 1px solid #b0c6ff;
+            border-radius: 7px;
+            background-color: #bdd0ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            text-align: center;
+            padding: 20px;
+            color: #0054ad;
+            font-weight: bold;
+            letter-spacing: 3px;
+            cursor: pointer;
+            transition: 0.1s all;
+        }
+        .web-map .module:hover{
+            background-color: #7399f7;
+            transform: scale(1.1);
+        }
+        .web-map .module:hover a{color: #fff;}
+    </style>
+</head>
+<body>
+<header>
+    <div class="top">
+        <h4>欢迎您来到洛阳市老城区民营经济服务平台</h4>
+        <div class="link">
+            <a href="#" class="ml20"><i class="fa fa-location-arrow fa-fw"></i>登录</a>
+            <a href="#" class="ml20"><i class="fa fa-user-plus fa-fw"></i>注册</a>
+            <a href="#" class="ml20"><i class="fa fa-info-circle fa-fw"></i>关于我们</a>
+            <a href="#" class="ml20"><i class="fa fa-phone fa-fw"></i>联系我们</a>
+            <a href="#" class="ml20"><i class="fa fa-cog fa-fw"></i>设置</a>
+        </div>
+    </div>
+</header>
+<article>
+    <div class="container pr">
+        <div class="content">
+            <div class="mess-box row">
+                <!-- 轮播图 -->
+                <div class="col-sm-5">
+                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+                        </ol>
+
+                        <div class="carousel-inner" role="listbox">
+                            <div class="item active">
+                                <a href="#"><img src="/img/wrap/1.jpg" alt="阿1"></a>
+                                <div class="carousel-caption">
+                                    <h3>天地桥梁</h3>
+                                    <p>它们被誉为神仙、魔鬼或祖先的化身。</p>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <a href="#"><img src="/img/wrap/2.jpg" alt="阿2"></a>
+                                <div class="carousel-caption">
+                                    <h3>上帝护卫兵</h3>
+                                    <p>早期在阿尔卑斯及其他的一些山中存在着某种山神形象。</p>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <a href="#"><img src="/img/wrap/3.jpg" alt="阿3"></a>
+                                <div class="carousel-caption">
+                                    <h3>挂历中的瑞士</h3>
+                                    <p>阿尔卑斯山总是出现在他们的挂历中。</p>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <a href="#"><img src="/img/wrap/4.jpg" alt="阿4"></a>
+                                <div class="carousel-caption">
+                                    <h3>现代神话</h3>
+                                    <p>今天的阿尔卑斯山的形象来自于一个流传不久的被创造出来的神话“海迪”。</p>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <a href="#"><img src="/img/wrap/5.jpg" alt="阿5"></a>
+                                <div class="carousel-caption">
+                                    <h3>仙山神灵</h3>
+                                    <p>接近自然派宗教认为山是有神灵的，而且神灵居住在渺无人烟的顶峰中。</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-7">
+                    <a class="news" href="#">
+                        <i class="fa fa-caret-right mr5"></i><span>中央一号文件要点速读</span>
+                        <span class="fr">[2022-02-22]</span>
+                    </a>
+                    <a class="news" href="#">
+                        <i class="fa fa-caret-right mr5"></i><span>俄军已控制基辅附近一处空军基地</span>
+                        <span class="fr">[2022-02-22]</span>
+                    </a>
+                    <a class="news" href="#">
+                        <i class="fa fa-caret-right mr5"></i><span>冬奥会带来的开学第一课</span>
+                        <span class="fr">[2022-02-22]</span>
+                    </a>
+                    <a class="news" href="#">
+                        <i class="fa fa-caret-right mr5"></i><span>乌克兰总统宣布与俄罗斯断交</span>
+                        <span class="fr">[2022-02-22]</span>
+                    </a>
+                    <a class="news" href="#">
+                        <i class="fa fa-caret-right mr5"></i><span>在乌中国留学生车上贴的国旗被偷</span>
+                        <span class="fr">[2022-02-22]</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="web-map">
+                <div class="module">
+                    <a href="#">企业家培训</a>
+                </div>
+                <div class="module">
+                    <a href="#">企业诉求</a>
+                </div>
+                <div class="module">
+                    <a href="#">政策宣讲</a>
+                </div>
+                <div class="module">
+                    <a href="#">银企对接</a>
+                </div>
+                <div class="module">
+                    <a href="#">产销对接</a>
+                </div>
+                <div class="module">
+                    <a href="#">项目对接</a>
+                </div>
+                <div class="module">
+                    <a href="#">科技成果转换</a>
+                </div>
+                <div class="module">
+                    <a href="#">劳务对接</a>
+                </div>
+                <div class="module">
+                    <a href="#">民营企业评议</a>
+                </div>
+                <div class="module">
+                    <a href="#">中介平台</a>
+                </div>
+                <div class="module">
+                    <a href="#">司法综合服务</a>
+                </div>
+                <div class="module">
+                    <a href="#">无人助万企</a>
+                </div>
+                <div class="module">
+                    <a href="#">民企荣誉</a>
+                </div>
+                <div class="module">
+                    <a href="#">乡村振兴</a>
+                </div>
+                <div class="module">
+                    <a href="#">新闻资询</a>
+                </div>
+                <div class="module">
+                    <a href="#">商会展示</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
+<footer>
+    <div class="link-box">
+        <div class="row">
+            <div class="col-sm-4">
+                <p>
+                    <a href="#">
+                        <i class="fa fa-caret-right mr5"></i>关于我们
+                    </a>
+                    <a href="#" class="ml20">
+                        <i class="fa fa-caret-right mr5"></i>联系我们
+                    </a>
+                </p>
+                <p>建设单位：xxxxxxxxxxxx</p>
+                <p>技术支持：xxxxxxxxxxxx</p>
+            </div>
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <p>友情链接</p>
+                <p><a href="#"><i class="fa fa-caret-right mr5"></i>xxxxxxxxx</a></p>
+                <p><a href="#"><i class="fa fa-caret-right mr5"></i>xxxxxxxxx</a></p>
+                <p><a href="#"><i class="fa fa-caret-right mr5"></i>xxxxxxxxx</a></p>
+            </div>
+        </div>
+    </div>
+    <p class="copyright">版权说明</p>
+</footer>
+<script>
+    $(document).ready(function() {});
+
+</script>
+</body>
+</html>

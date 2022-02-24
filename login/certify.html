@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>洛阳市老城区民营经济服务平台</title>
+    <link rel="stylesheet" type="text/css" href="/plugin/basic/css/min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/page.css" />
+    <script src="/plugin/basic/js/min.js"></script>
+    <script src="/js/jquery.validate.min.js"></script>
+    <script src="/js/common.js"></script>
+    <style>
+        #seconde{display: inline-block; width: 20px;}
+        .step-box{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: 30px;
+            grid-column-gap: 4px;
+        }
+        .step-box > .step{
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            background-color: rgba(86, 127, 230, 0.46);
+            color: #4c7fff;
+        }
+        .step-box > .step.active{background-color: #567fe6; color: #fff;}
+        .register-box{
+            width: 500px;
+            margin: auto;
+            margin-top: 50px;
+        }
+        .require-tip{color: #c00;}
+        .form-horizon > label{width: 131px; text-align: right; flex: none;}
+        .top{
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="top">
+        <h4>欢迎您来到洛阳市老城区民营经济服务平台</h4>
+        <div class="link">
+            <a href="#" class="ml20"><i class="fa fa-location-arrow fa-fw"></i>登录</a>
+            <a href="#" class="ml20"><i class="fa fa-user-plus fa-fw"></i>注册</a>
+            <a href="#" class="ml20"><i class="fa fa-info-circle fa-fw"></i>关于我们</a>
+            <a href="#" class="ml20"><i class="fa fa-phone fa-fw"></i>联系我们</a>
+            <a href="#" class="ml20"><i class="fa fa-cog fa-fw"></i>设置</a>
+        </div>
+    </div>
+</header>
+<article>
+    <div class="container pr">
+        <div class="content">
+            <div class="step-box">
+                <div class="step">
+                    <span>创建用户</span>
+                </div>
+                <div class="step active">
+                    <span>企业认证</span>
+                </div>
+                <div class="step">
+                    <span>信息审核</span>
+                </div>
+            </div>
+
+            <div class="register-box">
+                <form id="verifyForm">
+                    <div class="form-horizon form-group">
+                        <label><span class="require-tip">*</span>统一社会信用代码：</label>
+                        <div class="el w">
+                            <input autocomplete="off" class="form-control w" placeholder="请输入统一社会信用代码" type="text" name="code" />
+                        </div>
+                    </div>
+                    <div class="form-horizon form-group">
+                        <label><span class="require-tip">*</span>企业名称：</label>
+                        <div class="el w">
+                            <input autocomplete="off" class="form-control" placeholder="请输入企业名称" type="text" name="companyName" />
+                        </div>
+                    </div>
+                    <div class="form-horizon form-group">
+                        <label><span class="require-tip">*</span>企业法人：</label>
+                        <div class="el w">
+                            <input autocomplete="off" class="form-control w" placeholder="请输入企业法人" type="text" name="corporation" />
+                        </div>
+                    </div>
+                    <div class="form-horizon form-group">
+                        <label><span class="require-tip">*</span>法人身份证：</label>
+                        <div class="el w">
+                            <input autocomplete="off" class="form-control w" placeholder="请输入法人身份证" type="text" name="corporationNo" />
+                        </div>
+                    </div>
+                    <div class="form-horizon form-group">
+                        <label><span class="require-tip">*</span>法人手机号：</label>
+                        <div class="el w">
+                            <input autocomplete="off" class="form-control w" placeholder="请输入法人手机号" type="text" name="corporationPhone" />
+                        </div>
+                    </div>
+                    <div class="form-horizon form-group">
+                        <label><span class="require-tip">*</span>联系人：</label>
+                        <div class="el w">
+                            <input autocomplete="off" class="form-control w" placeholder="请输入联系人" type="text" name="contactPerson" />
+                        </div>
+                    </div>
+                    <div class="form-horizon form-group">
+                        <label><span class="require-tip">*</span>联系人电话：</label>
+                        <div class="el w">
+                            <input autocomplete="off" class="form-control w" placeholder="联系人电话" type="text" name="contactPersonPhone" />
+                        </div>
+                    </div>
+                    <div class="form-horizon form-group">
+                        <label><span class="require-tip">*</span>所属行业：</label>
+                        <div class="el w">
+                            <select class="form-control" name="industry">
+                                <option value="">请选择所属行业</option>
+                                <option value="1">电力、热力、燃气及水生产和供应业</option>
+                                <option value="2">建筑业</option>
+                                <option value="3">批发和零售业</option>
+                                <option value="4">交通运输、仓储和邮政业</option>
+                                <option value="5">住宿和餐饮业</option>
+                                <option value="6">信息传输、软件和信息技术服务业</option>
+                                <option value="7">金融业</option>
+                                <option value="8">房地产业</option>
+                                <option value="9">租赁和商务服务业</option>
+                                <option value="10">科学研究和技术服务业</option>
+                                <option value="11">水利、环境和公共设施管理业</option>
+                                <option value="12">居民服务、修理和其他服务业</option>
+                                <option value="13">教育</option>
+                                <option value="14">农、林、牧、渔业</option>
+                                <option value="15">采矿业</option>
+                                <option value="16">制造业</option>
+                                <option value="17">卫生和社会工作</option>
+                                <option value="18">文化、体育和娱乐业</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary btn-block" type="button" onclick="submitVerify()">提交审核</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</article>
+<footer>
+    <div class="link-box">
+        <div class="row">
+            <div class="col-sm-4">
+                <p>
+                    <a href="#">
+                        <i class="fa fa-caret-right mr5"></i>关于我们
+                    </a>
+                    <a href="#" class="ml20">
+                        <i class="fa fa-caret-right mr5"></i>联系我们
+                    </a>
+                </p>
+                <p>建设单位：xxxxxxxxxxxx</p>
+                <p>技术支持：xxxxxxxxxxxx</p>
+            </div>
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <p>友情链接</p>
+                <p><a href="#"><i class="fa fa-caret-right mr5"></i>xxxxxxxxx</a></p>
+                <p><a href="#"><i class="fa fa-caret-right mr5"></i>xxxxxxxxx</a></p>
+                <p><a href="#"><i class="fa fa-caret-right mr5"></i>xxxxxxxxx</a></p>
+            </div>
+        </div>
+    </div>
+    <p class="copyright">版权说明</p>
+</footer>
+<script>
+    $(document).ready(function() {
+        verify();
+    });
+
+    // 提交审核
+    function submitVerify() {
+        if (!verify().form()) {
+            return;
+        }
+    }
+
+    // 表单校验
+    function verify() {
+        return $("#verifyForm").validate({
+            rules: {
+                code: "required",
+                companyName: "required",
+                corporation: "required",
+                corporationNo: {
+                    required: true,
+                    isIdCard: true
+                },
+                corporationPhone: {
+                    required: true,
+                    isPhone: true
+                },
+                contactPerson: "required",
+                contactPersonPhone: {
+                    required: true,
+                    isPhone: true
+                },
+                industry: "required"
+            },
+            messages: {
+                code: "请输入统一社会信用代码",
+                companyName: "请输入企业名称",
+                corporation: "请输入企业法人",
+                corporationNo: {
+                    required: "请输入法人身份证"
+                },
+                corporationPhone: {
+                    required: "请输入法人手机号"
+                },
+                contactPerson: "请输入联系人",
+                contactPersonPhone: {
+                    required: "请输入联系人电话"
+                },
+                industry: "请选择所属行业"
+            }
+        })
+    }
+
+    // 手机号校验
+    jQuery.validator.addMethod("isPhone", function (value, element) {
+        var phoneRex =/^1[0-9]{10}$/;
+        return phoneRex.test(value);
+    }, "请输入正确格式的手机号");
+
+    // 身份证校验
+    jQuery.validator.addMethod("isIdCard", function (value, element) {
+        return idCardNoUtil.checkIdCardNo(value);
+    }, "请输入正确格式的身份证号");
+</script>
+</body>
+</html>
