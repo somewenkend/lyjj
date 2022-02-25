@@ -961,3 +961,43 @@ div[id*=searchLoadData_]{position: absolute; display: none;  z-index: 2000; left
 .form-control:focus, .single-line:focus {
   border-color: #6b95ff !important;
 }
+
+/*页面通用css*/
+.top{
+  display: flex;
+  justify-content: space-between;
+}
+.menu{
+  display: grid;
+  grid-template-columns: repeat(17, 1fr);
+}
+.menu .module{
+  border: 1px solid #b0c6ff;
+  background-color: #bdd0ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  text-align: center;
+  padding: 7px 9px;
+  color: #0054ad;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.menu .module:hover{
+  background-color: #7399f7;
+}
+.menu .module:hover a{color: #fff;}
+.menu .module.active{background-color: #7399f7;}
+.menu .module.active a{color: #fff;}
+/*页面通用css*/
+
+/*文章通用格式*/
+.essay{
+  font-size: 16px;
+  letter-spacing: 1px;
+  line-height: 30px;
+  text-align: justify;
+}
+.essay img{max-height: 500px;}
+.essay p{text-indent: 32px;}

@@ -202,4 +202,110 @@ var idCardNoUtil = {
     }
 };
 
+$(document).ready(function() {
+    var headerContent = `
+        <div class="top">
+            <h4><i class="fa fa-fire mr5"></i>欢迎您来到洛阳市老城区民营经济服务平台</h4>
+            <div class="link">
+                <a href="#" class="ml20"><i class="fa fa-location-arrow fa-fw"></i>登录</a>
+                <a href="#" class="ml20"><i class="fa fa-user-plus fa-fw"></i>注册</a>
+                <a href="#" class="ml20"><i class="fa fa-info-circle fa-fw"></i>关于我们</a>
+                <a href="#" class="ml20"><i class="fa fa-phone fa-fw"></i>联系我们</a>
+                <a href="#" class="ml20"><i class="fa fa-cog fa-fw"></i>设置</a>
+            </div>
+        </div>
+    `;
+    var menuContent = `
+        <div class="module active">
+            <a href="#">首页</a>
+        </div>
+        <div class="module">
+            <a href="#">企业家培训</a>
+        </div>
+        <div class="module">
+            <a href="#">企业诉求</a>
+        </div>
+        <div class="module">
+            <a href="#">政策宣讲</a>
+        </div>
+        <div class="module">
+            <a href="#">银企对接</a>
+        </div>
+        <div class="module">
+            <a href="#">产销对接</a>
+        </div>
+        <div class="module">
+            <a href="#">项目对接</a>
+        </div>
+        <div class="module">
+            <a href="#">科技成果转换</a>
+        </div>
+        <div class="module">
+            <a href="#">劳务对接</a>
+        </div>
+        <div class="module">
+            <a href="#">民营企业评议</a>
+        </div>
+        <div class="module">
+            <a href="#">中介平台</a>
+        </div>
+        <div class="module">
+            <a href="#">司法综合服务</a>
+        </div>
+        <div class="module">
+            <a href="#">无人助万企</a>
+        </div>
+        <div class="module">
+            <a href="#">民企荣誉</a>
+        </div>
+        <div class="module">
+            <a href="#">乡村振兴</a>
+        </div>
+        <div class="module">
+            <a href="#">新闻资询</a>
+        </div>
+        <div class="module">
+            <a href="#">商会展示</a>
+        </div>
+    `;
+    var footerContent = `
+        <div class="link-box">
+            <div class="row">
+                <div class="col-sm-4">
+                    <p>
+                        <a href="#">
+                            <i class="fa fa-caret-right mr5"></i>关于我们
+                        </a>
+                        <a href="#" class="ml20">
+                            <i class="fa fa-caret-right mr5"></i>联系我们
+                        </a>
+                    </p>
+                    <p>建设单位：xxxxxxxxxxxx</p>
+                    <p>技术支持：xxxxxxxxxxxx</p>
+                </div>
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                    <p>友情链接</p>
+                    <p><a href="#"><i class="fa fa-caret-right mr5"></i>xxxxxxxxx</a></p>
+                    <p><a href="#"><i class="fa fa-caret-right mr5"></i>xxxxxxxxx</a></p>
+                    <p><a href="#"><i class="fa fa-caret-right mr5"></i>xxxxxxxxx</a></p>
+                </div>
+            </div>
+        </div>
+        <p class="copyright">版权说明</p>
+    `;
+    // 头部
+    if ($("header").length > 0) {
+        $("header").html(headerContent);
+    }
+    // 菜单
+    if ($("#menu").length > 0) {
+        $("#menu").html(menuContent);
+    }
+    // 脚部
+    if ($("footer").length > 0) {
+        $("footer").html(footerContent);
+    }
+})
+
 
