@@ -13,35 +13,38 @@
     <style>
         .bg-box{
             position: absolute;
-            top: 70px;
             left: 0;
             width: 100%;
             z-index: -1;
-            height: calc(100% - 70px);
-            background-image: url(/img/login_bg.png);
-            background-position-y: bottom;
+            height: 100vh;
+            background-image: url(/img/top.jpg);
+            background-position: center;
+            background-size: cover;
         }
         .login-box{
             position: absolute;
-            top: 150px;
-            margin-left: calc(50% - 200px);
+            top: 0;
             width: 400px;
             background-color: #fff;
-            padding: 20px;
-            border-radius: 15px;
-            margin-top: calc(50vh - 380px);
+            padding: 0 40px;
             z-index: 1;
+            right: 0;
+            height: 100vh;
+            padding-top: calc(50vh - 200px);
+            box-shadow: -2px 0 7px #727272;
         }
+        .container{width: 100%!important; background-color: rgba(38,38,38,.5);min-height: auto; padding: 20px 420px 20px 0;}
+        .container > .top > h2{color: #fff; text-shadow: 1px 2px 1px #0a0a0a;}
     </style>
 </head>
 <body>
     <div class="bg-box"></div>
     <div class="container pr">
-        <div class="top mt20">
-           <h2>洛阳市老城区民营经济服务平台</h2>
+        <div class="top">
+           <h2 class="tc w">洛阳市老城区民营经济服务平台</h2>
         </div>
         <div class="content">
-            <div class="login-box">
+            <div class="login-box animated fadeInRightBig">
                 <h3 class="mb20">登录</h3>
                 <form id="loginForm">
                     <div class="form-horizon form-group">

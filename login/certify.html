@@ -17,15 +17,16 @@
             grid-template-columns: repeat(3, 1fr);
             grid-template-rows: 30px;
             grid-column-gap: 4px;
+            margin: 0 -40px;
         }
         .step-box > .step{
             height: 30px;
             line-height: 30px;
             text-align: center;
-            background-color: rgba(86, 127, 230, 0.46);
-            color: #4c7fff;
+            background-color: var(--main-light);
+            color: #fff;
         }
-        .step-box > .step.active{background-color: #567fe6; color: #fff;}
+        .step-box > .step.active{background-color: var(--main); color: #fff;}
         .register-box{
             width: 500px;
             margin: auto;

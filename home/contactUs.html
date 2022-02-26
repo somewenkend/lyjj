@@ -14,23 +14,27 @@
         .module-info{
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: 100px 100px;
+            grid-template-rows: 150px 150px;
             grid-column-gap: 30px;
             grid-row-gap: 30px;
         }
         .department{
-            border: 1px solid #b0c6ff;
+            color: var(--main);
             border-radius: 7px;
-            background-color: #bdd0ff;
             display: flex;
             flex-flow: column;
             justify-content: center;
+            padding: 20px 40px;
+            border-radius: 7px;
             font-size: 16px;
-            padding: 20px;
-            font-weight: bold;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: 0.1s all;
+            background-image: url(/img/border-red.png);
+            background-size: 100% 100%;
+            background-position: center;
         }
-        .department p{color: #567fe6; margin-top: 5px;}
+        .department p{margin-top: 5px; color: var(--main-light);font-weight: bold!important;}
     </style>
 </head>
 <body>

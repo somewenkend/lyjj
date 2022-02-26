@@ -11,10 +11,6 @@
     <script src="/js/jquery.validate.min.js"></script>
     <script src="/js/common.js"></script>
     <style>
-        .top{
-            display: flex;
-            justify-content: space-between;
-        }
         .carousel-control.left, .carousel-control.right, .carousel-inner{border-radius: 7px; cursor: pointer;}
         .carousel-caption{opacity: .8;}
         .carousel-inner>.item>a>img, .carousel-inner>.item>img, .img-responsive, .thumbnail a>img, .thumbnail>img {
@@ -26,14 +22,16 @@
         a.news{
             display: block;
             height: 20px;
-            color: #0a74e5;
+            color: #1D2939;
             height: 52px;
             font-size: 16px;
             line-height: 52px;
-            border-bottom: 1px solid #779ee1;
+            border-bottom: 1px solid #1D2939;
             margin-left: 15px;
         }
-        a.news span.fr{font-size: 14px; color: #6c95d3;}
+        a.news span{display: inline-block; transition: padding-left 0.1s;}
+        a.news:hover span{padding-left: 20px;}
+        a.news span.fr{font-size: 14px; color: #999;}
 
         .web-map{
             display: grid;
@@ -41,36 +39,35 @@
             grid-template-rows: 100px 100px;
             grid-column-gap: 15px;
             grid-row-gap: 15px;
-            margin-top: 80px;
+            margin-top: 50px;
         }
         .web-map .module{
-            border: 1px solid #b0c6ff;
             border-radius: 7px;
-            background-color: #bdd0ff;
             display: flex;
             justify-content: center;
             align-items: center;
             font-size: 16px;
             text-align: center;
             padding: 20px;
-            color: #0054ad;
             font-weight: bold;
             letter-spacing: 3px;
             cursor: pointer;
             transition: 0.1s all;
+            background-image: url(/img/border-gold.png);
+            background-size: 100% 100%;
+            background-position: center;
         }
+        .web-map .module a{color: #e0cd9f;}
         .web-map .module:hover{
-            background-color: #7399f7;
             transform: scale(1.1);
         }
-        .web-map .module:hover a{color: #fff;}
     </style>
 </head>
 <body>
 <header></header>
 <article>
     <div class="container pr">
-        <div class="content">
+        <div class="content" style="padding-top: 40px;">
             <div class="mess-box row">
                 <!-- 轮播图 -->
                 <div class="col-sm-5">
