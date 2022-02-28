@@ -1044,3 +1044,16 @@ footer .copyright{text-align: center; padding: 5px; background-color: var(--main
 }
 .essay img{max-height: 500px;}
 .essay p{text-indent: 32px;}
+/*新闻列表css*/
+a.news{
+  display: block;
+  height: 20px;
+  color: #1D2939;
+  height: 42px;
+  font-size: 14px;
+  line-height: 42px;
+  border-bottom: 1px solid #1D2939;
+}
+a.news span{display: inline-block; transition: padding-left 0.1s;}
+a.news:hover span{padding-left: 20px;}
+a.news span.fr{font-size: 14px; color: #999;}
