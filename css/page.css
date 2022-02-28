@@ -1023,6 +1023,8 @@ footer .copyright{text-align: center; padding: 5px; background-color: var(--main
   white-space: nowrap;
   font-size: 16px;
   border-bottom: 1px solid rgba(139,24,59,.22);
+  letter-spacing: 2px;
+  transition: all 0.1s;
 }
 .menu .module a{color: #fff;}
 .menu .module:hover{
