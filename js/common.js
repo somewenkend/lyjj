@@ -216,55 +216,55 @@ $(document).ready(function() {
         </div>
     `;
     var menuContent = `
-        <div class="module active">
+        <div class="module" id="1">
             <a href="#">首页</a>
         </div>
-        <div class="module">
+        <div class="module" id="2">
             <a href="#">企业家培训</a>
         </div>
-        <div class="module">
+        <div class="module" id="3">
             <a href="#">企业诉求</a>
         </div>
-        <div class="module">
+        <div class="module" id="4">
             <a href="#">政策宣讲</a>
         </div>
-        <div class="module">
+        <div class="module" id="5">
             <a href="#">银企对接</a>
         </div>
-        <div class="module">
+        <div class="module" id="6">
             <a href="#">产销对接</a>
         </div>
-        <div class="module">
+        <div class="module" id="7">
             <a href="#">项目对接</a>
         </div>
-        <div class="module">
+        <div class="module" id="8">
             <a href="#">科技成果转换</a>
         </div>
-        <div class="module">
+        <div class="module" id="9">
             <a href="#">劳务对接</a>
         </div>
-        <div class="module">
+        <div class="module" id="10">
             <a href="#">民营企业评议</a>
         </div>
-        <div class="module">
+        <div class="module" id="11">
             <a href="#">中介平台</a>
         </div>
-        <div class="module">
+        <div class="module" id="12">
             <a href="#">司法综合服务</a>
         </div>
-        <div class="module">
+        <div class="module" id="13">
             <a href="#">无人助万企</a>
         </div>
-        <div class="module">
+        <div class="module" id="14">
             <a href="#">民企荣誉</a>
         </div>
-        <div class="module">
+        <div class="module" id="15">
             <a href="#">乡村振兴</a>
         </div>
-        <div class="module">
+        <div class="module" id="16">
             <a href="#">新闻资询</a>
         </div>
-        <div class="module">
+        <div class="module" id="17">
             <a href="#">商会展示</a>
         </div>
     `;
@@ -307,5 +307,14 @@ $(document).ready(function() {
         $("footer").html(footerContent);
     }
 })
+
+// 选中对应的菜单
+function focusMenu(id) {
+    $("#menu").find(".module").removeClass("active");
+    $("#menu").find(".module#"+id).addClass("active");
+    $("#menu").animate({
+        scrollLeft: $("#menu").find(".module#"+id).index() * 150
+    }, 0);
+}
 
 
