@@ -207,17 +207,17 @@ $(document).ready(function() {
         <div class="top">
             <h4><i class="fa fa-fire mr5"></i>欢迎您来到洛阳市老城区民营经济服务平台</h4>
             <div class="link">
-                <a href="#" class="ml20"><i class="fa fa-location-arrow fa-fw"></i>登录</a>
-                <a href="#" class="ml20"><i class="fa fa-user-plus fa-fw"></i>注册</a>
-                <a href="#" class="ml20"><i class="fa fa-info-circle fa-fw"></i>关于我们</a>
-                <a href="#" class="ml20"><i class="fa fa-phone fa-fw"></i>联系我们</a>
+                <a href="/login.html" class="ml20"><i class="fa fa-location-arrow fa-fw"></i>登录</a>
+                <a href="/login/register.html" class="ml20"><i class="fa fa-user-plus fa-fw"></i>注册</a>
+                <a href="/home/aboutUs.html" class="ml20"><i class="fa fa-info-circle fa-fw"></i>关于我们</a>
+                <a href="/home/contactUs.html" class="ml20"><i class="fa fa-phone fa-fw"></i>联系我们</a>
                 <a href="#" class="ml20"><i class="fa fa-cog fa-fw"></i>设置</a>
             </div>
         </div>
     `;
     var menuContent = `
         <div class="module" id="1">
-            <a href="#">首页</a>
+            <a href="/home/home.html">首页</a>
         </div>
         <div class="module" id="2">
             <a href="#">企业家培训</a>

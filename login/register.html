@@ -68,7 +68,7 @@
                     <div class="form-horizon form-group">
                         <label><span class="require-tip">*</span>验证码：</label>
                         <div class="el w">
-                            <input autocomplete="off" class="form-control" placeholder="请输入密码" type="text" name="code" />
+                            <input autocomplete="off" class="form-control" placeholder="请输入验证码" type="text" name="code" />
                         </div>
                         <button class="btn btn-default ml5" style="height: 34px;" id="codeBtn" type="button" onclick="getCode(this)">获取验证码</button>
                     </div>
@@ -102,6 +102,8 @@
         if (!verify().form()) {
             return;
         }
+        // todo 企业认证
+        window.location.href = "/login/certify.html";
     }
 
     // 表单校验

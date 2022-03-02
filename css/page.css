@@ -1057,3 +1057,9 @@ a.news{
 a.news span{display: inline-block; transition: padding-left 0.1s;}
 a.news:hover span{padding-left: 20px;}
 a.news span.fr{font-size: 14px; color: #999;}
+/*板块主列表样式*/
+.row.main-list{margin-right: -20px; margin-left: -20px; margin-top: -20px;}
+.row.main-list > .col-md-4{padding-right: 20px; padding-left: 20px;}
+.title-main{margin-bottom: 10px; margin-top: 20px;}
+.title-main > i.fa-flag{color: var(--main);}
+.news-main > a.news{height: 32px; line-height: 32px;}

@@ -35,6 +35,10 @@
         }
         .container{width: 100%!important; background-color: rgba(38,38,38,.5);min-height: auto; padding: 20px 420px 20px 0;}
         .container > .top > h2{color: #fff; text-shadow: 1px 2px 1px #0a0a0a;}
+        .animated{
+            -webkit-animation-duration: 0.5s;
+            animation-duration: 0.5s;
+        }
     </style>
 </head>
 <body>
@@ -57,11 +61,11 @@
                         <i class="fa fa-lock mr10 f18" style="line-height: 34px;"></i>
                         <div class="el w">
                             <input autocomplete="off" class="form-control" placeholder="请输入密码" type="password" name="password" />
-                            <a href="#" class="fr mt3">忘记密码？</a>
+                            <a href="/login/forgetPassword.html" class="fr mt3">忘记密码？</a>
                         </div>
                     </div>
                     <button class="btn btn-primary btn-block" type="button" onclick="login()">登录</button>
-                    <p class="mt5">还没有账号？<a href="#">去注册</a></p>
+                    <p class="mt5">还没有账号？<a href="/login/register.html">去注册</a></p>
                     <h6 style="margin-top: 10px; text-align: center; color: #999;">为保证系统稳定，建议使用chrome浏览器</h6>
                 </form>
             </div>
@@ -77,6 +81,9 @@
             if (!verify().form()) {
                 return;
             }
+
+            // todo 假登录
+            window.location.href = "/home/home.html";
         }
 
         // 表单校验
