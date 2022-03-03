@@ -20,14 +20,21 @@
             width: 100%;
         }
         a.news{
-            display: block;
-            height: 20px;
+            display: flex;
+            align-items: center;
+
             color: #1D2939;
             height: 52px;
             font-size: 16px;
             line-height: 52px;
             border-bottom: 1px solid #1D2939;
             margin-left: 15px;
+        }
+        a.news span{
+            max-width: calc(100% - 115px);
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
         }
 
         .web-map{
@@ -54,6 +61,12 @@
             background-size: 100% 100%;
             background-position: center;
             color: #e0cd9f;
+        }
+        @media (max-width: 1366px) {
+            .web-map .module{
+                font-size: 14px;
+                padding: 15px;
+            }
         }
         .web-map .module a{color: #e0cd9f;}
         .web-map .module:hover{
@@ -128,23 +141,23 @@
                 </div>
                 <div class="col-sm-7">
                     <a class="news" href="#">
-                        <i class="fa fa-caret-right mr5"></i><span>中央一号文件要点速读</span>
+                        <i class="fa fa-caret-right mr10"></i><span>中央一号文件要点速读</span>
                         <span class="fr">[2022-02-22]</span>
                     </a>
                     <a class="news" href="#">
-                        <i class="fa fa-caret-right mr5"></i><span>俄军已控制基辅附近一处空军基地</span>
+                        <i class="fa fa-caret-right mr10"></i><span>俄军已控制基辅附近一处空军基地</span>
                         <span class="fr">[2022-02-22]</span>
                     </a>
                     <a class="news" href="#">
-                        <i class="fa fa-caret-right mr5"></i><span>冬奥会带来的开学第一课</span>
+                        <i class="fa fa-caret-right mr10"></i><span>冬奥会带来的开学第一课</span>
                         <span class="fr">[2022-02-22]</span>
                     </a>
                     <a class="news" href="#">
-                        <i class="fa fa-caret-right mr5"></i><span>乌克兰总统宣布与俄罗斯断交</span>
+                        <i class="fa fa-caret-right mr10"></i><span>乌克兰总统宣布与俄罗斯断交</span>
                         <span class="fr">[2022-02-22]</span>
                     </a>
                     <a class="news" href="#">
-                        <i class="fa fa-caret-right mr5"></i><span>在乌中国留学生车上贴的国旗被偷</span>
+                        <i class="fa fa-caret-right mr10"></i><span>在乌中国留学生车上贴的国旗被偷</span>
                         <span class="fr">[2022-02-22]</span>
                     </a>
                 </div>

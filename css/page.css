@@ -1046,7 +1046,8 @@ footer .copyright{text-align: center; padding: 5px; background-color: var(--main
 .essay p{text-indent: 32px;}
 /*新闻列表css*/
 a.news{
-  display: block;
+  display: flex;
+  align-items: center;
   height: 20px;
   color: #1D2939;
   height: 42px;
@@ -1054,9 +1055,16 @@ a.news{
   line-height: 42px;
   border-bottom: 1px solid #1D2939;
 }
-a.news span{display: inline-block; transition: padding-left 0.1s;}
+a.news span{
+  display: inline-block;
+  transition: padding-left 0.1s;
+  max-width: calc(100% - 110px);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
 a.news:hover span{padding-left: 20px;}
-a.news span.fr{font-size: 14px; color: #999;}
+a.news span.fr{font-size: 14px; color: #999; margin-left: auto;}
 /*板块主列表样式*/
 .row.main-list{margin-right: -20px; margin-left: -20px; margin-top: -20px;}
 .row.main-list > .col-md-4{padding-right: 20px; padding-left: 20px;}
