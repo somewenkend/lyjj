@@ -413,7 +413,7 @@ body{font-family: -apple-system-font,BlinkMacSystemFont,"Microsoft YaHei UI","Mi
 .p0{padding: 0px;}
 .p15{ padding: 15px;}
 #alertModal{ z-index: 9999999999}
-textarea{resize: none;}
+/*textarea{resize: none;}*/
 body,div,dl,dt,dd,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td{ margin:0; padding:0;}
 table{ border-collapse:collapse; border-spacing:0; display: table;  width: auto;}
 table td, th {padding: 5px 10px; border: 1px solid #DDD;}

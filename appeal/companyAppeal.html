@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>洛阳市老城区民营经济服务平台</title>
+    <link rel="stylesheet" type="text/css" href="/plugin/basic/css/min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/page.css" />
+    <script src="/plugin/basic/js/min.js"></script>
+    <script src="/js/jquery.validate.min.js"></script>
+    <script src="/js/common.js"></script>
+    <style>
+        .step-box{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: 30px;
+        }
+        .step-box > .step{
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            background-color: var(--main-light);
+            color: #fff;
+        }
+        .step-box > .step:not(:last-child){border-right: 1px solid var(--main-light);}
+        .step-box > .step.active{background-color: var(--main); color: #fff;}
+        .form-horizon > label{width: 103px; text-align: right; flex: none;}
+    </style>
+</head>
+<body>
+<header></header>
+<article>
+    <div class="container pr">
+        <div class="content">
+            <div class="menu" id="menu"></div>
+            <div class="cur-post mt20 mb50">
+                <i class="fa fa-home mr5 f18"></i>
+                <span>当前位置：</span>
+                <a href="/home/home.html">首页</a>
+                <span class="c999"> > </span><span>企业诉求</span>
+            </div>
+            <div class="step-box">
+                <div class="step">
+                    <span>受理范围</span>
+                </div>
+                <div class="step active">
+                    <span>企业诉求</span>
+                </div>
+                <div class="step">
+                    <span>结果查询</span>
+                </div>
+                <div class="step">
+                    <span>我的诉求</span>
+                </div>
+            </div>
+            <div class="module-info">
+                <form id="appeal" class="mt20">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-horizon form-group">
+                                <label><span class="require-tip">*</span>申请企业：</label>
+                                <div class="el w">
+                                    <input autocomplete="off" class="form-control w" placeholder="请输入企业名称" type="text" name="company" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-horizon form-group">
+                                <label><span class="require-tip">*</span>申请人：</label>
+                                <div class="el w">
+                                    <input autocomplete="off" class="form-control w" placeholder="请输入申请人" type="text" name="applicant" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-horizon form-group">
+                                <label><span class="require-tip">*</span>诉求标题：</label>
+                                <div class="el w">
+                                    <input autocomplete="off" class="form-control w" placeholder="请输入诉求标题" type="text" name="title" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-horizon form-group">
+                                <label><span class="require-tip">*</span>诉求问题详情：</label>
+                                <div class="el w">
+                                    <textarea autocomplete="off" rows="3" class="form-control w" placeholder="请输入诉求问题详情" type="text" name="detail"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tc">
+                        <button class="btn btn-primary" type="button" onclick="request()">提  交</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</article>
+<footer></footer>
+<script>
+    $(document).ready(function() {
+        focusMenu(3);
+    });
+
+    // 提交诉求
+    function request() {
+        if (!verify().form()) {
+            return;
+        }
+    }
+
+    // 表单校验
+    function verify() {
+        return $("#appeal").validate({
+            rules: {
+                company: "required",
+                applicant: "required",
+                title: "required",
+                detail: "required"
+            },
+            messages: {
+                company: "请输入企业名称",
+                applicant: "请输入申请人",
+                title: "请输入诉求标题",
+                detail: "请输入诉求问题详情"
+            }
+        })
+    }
+</script>
+</body>
+</html>

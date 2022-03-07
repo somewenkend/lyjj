@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>洛阳市老城区民营经济服务平台</title>
+    <link rel="stylesheet" type="text/css" href="/plugin/basic/css/min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/page.css" />
+    <script src="/plugin/basic/js/min.js"></script>
+    <script src="/js/jquery.validate.min.js"></script>
+    <script src="/js/common.js"></script>
+    <style>
+        .step-box{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: 30px;
+        }
+        .step-box > .step{
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            background-color: var(--main-light);
+            color: #fff;
+        }
+        .step-box > .step:not(:last-child){border-right: 1px solid var(--main-light);}
+        .step-box > .step.active{background-color: var(--main); color: #fff;}
+        table tr > th, table tr > td{text-align: center;}
+    </style>
+</head>
+<body>
+<header></header>
+<article>
+    <div class="container pr">
+        <div class="content">
+            <div class="menu" id="menu"></div>
+            <div class="cur-post mt20 mb50">
+                <i class="fa fa-home mr5 f18"></i>
+                <span>当前位置：</span>
+                <a href="/home/home.html">首页</a>
+                <span class="c999"> > </span><span>企业诉求</span>
+            </div>
+            <div class="step-box">
+                <div class="step">
+                    <span>受理范围</span>
+                </div>
+                <div class="step">
+                    <span>企业诉求</span>
+                </div>
+                <div class="step">
+                    <span>结果查询</span>
+                </div>
+                <div class="step active">
+                    <span>我的诉求</span>
+                </div>
+            </div>
+            <div class="module-info">
+                <div class="table-responsive mt20">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr><th>诉求编号</th><th>诉求标题</th><th>是否受理</th><th>受理部门</th><th>是否回复</th></tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <div class="page tc mt10" id="pageBox"></div>
+            </div>
+        </div>
+    </div>
+</article>
+<footer></footer>
+<script>
+    $(document).ready(function() {
+        focusMenu(3);
+        getAppeal(1, 10);
+    });
+
+    // 获取消息列表
+    function getAppeal(page, limit) {
+        // ajax
+        // 拼装消息列表
+        // spellAppealList([]);
+        // 渲染分页
+        laypage({
+            cont: "pageBox"
+            ,pages: 10 //总页数，从服务端得到
+            ,curr: 2 //当前页，从服务端得到
+            ,jump: function(obj, first){ //触发分页后的回调
+                if(!first){ //一定要加此判断，否则初始时会无限刷新
+                    getAppeal(obj.page, obj.limit);
+                }
+            }
+            ,skip: true //是否开启跳页
+            ,skin: '#982042' //加载内置皮肤，也可以直接赋值16进制颜色值，如:#c00
+            ,groups: 7 //连续显示分页数
+        });
+    }
+
+    // 拼装消息列表
+    function spellAppealList(list) {
+        var newsHtml = "";
+        newsHtml = list.map(item => {
+            return `
+                <tr>
+                    <td>${item.code}</td>
+                    <td>${item.title}</td>
+                    <td>${item.isAccept}</td>
+                    <td>${item.department}</td>
+                    <td>${item.isReply}</td>
+                </tr>
+            `;
+        }).join("");
+        $(".news-box").html(newsHtml);
+    }
+</script>
+</body>
+</html>

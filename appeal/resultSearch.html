@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>洛阳市老城区民营经济服务平台</title>
+    <link rel="stylesheet" type="text/css" href="/plugin/basic/css/min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/page.css" />
+    <script src="/plugin/basic/js/min.js"></script>
+    <script src="/js/jquery.validate.min.js"></script>
+    <script src="/js/common.js"></script>
+    <style>
+        .step-box{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: 30px;
+        }
+        .step-box > .step{
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            background-color: var(--main-light);
+            color: #fff;
+        }
+        .step-box > .step:not(:last-child){border-right: 1px solid var(--main-light);}
+        .step-box > .step.active{background-color: var(--main); color: #fff;}
+        .form-horizon > label{width: 103px; text-align: right; flex: none;}
+
+        .form-horizon.form-group{align-items: baseline;}
+        .form-horizon.form-group > .el{
+            color: #666;
+            letter-spacing: 0.5px;
+            line-height: 25px;
+            text-align: justify;
+        }
+    </style>
+</head>
+<body>
+<header></header>
+<article>
+    <div class="container pr">
+        <div class="content">
+            <div class="menu" id="menu"></div>
+            <div class="cur-post mt20 mb50">
+                <i class="fa fa-home mr5 f18"></i>
+                <span>当前位置：</span>
+                <a href="/home/home.html">首页</a>
+                <span class="c999"> > </span><span>企业诉求</span>
+            </div>
+            <div class="step-box">
+                <div class="step">
+                    <span>受理范围</span>
+                </div>
+                <div class="step">
+                    <span>企业诉求</span>
+                </div>
+                <div class="step active">
+                    <span>结果查询</span>
+                </div>
+                <div class="step">
+                    <span>我的诉求</span>
+                </div>
+            </div>
+            <div class="module-info">
+                <div class="form-horizon mt20" style="justify-content: end;">
+                    <input autocomplete="off" style="width: 300px;" class="form-control" placeholder="请输入诉求编号" type="text" id="code" />
+                    <button class="btn btn-primary" style="border-radius: 0 5px 5px 0; margin-left: -1px;" type="button" onclick="searchResult()">
+                        <i class="fa fa-search fa-fw" data-toggle="tooltip" title="点击查询结果"></i>
+                    </button>
+                </div>
+
+
+                <form id="appeal" class="mt20">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-horizon form-group">
+                                <label><span class="require-tip">*</span>受理部门：</label>
+                                <div class="el w" id="department">技术部</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-horizon form-group">
+                                <label><span class="require-tip">*</span>受理人：</label>
+                                <div class="el w" id="person">张国华</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-horizon form-group">
+                                <label><span class="require-tip">*</span>诉求标题：</label>
+                                <div class="el w" id="title">申请减免中小企业税率</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-horizon form-group">
+                                <label><span class="require-tip">*</span>诉求问题详情：</label>
+                                <div class="el w" id="detail">
+                                    实际上，自疫情发生以来，国家相关部门已陆续出台一系列纾困政策，加持旅游业复苏。例如，2021年4月，文化和旅游部、中国人民银行、中国银行保险监督管理委员会下发《关于抓好金融政策落实 进一步支持演出企业和旅行社等市场主体纾困发展的通知》；2021年6月，文化和旅游部发布《关于加强政策扶持进一步支持旅行社发展的通知》；2021年10月又发布《关于用好旅游服务质量保证金政策进一步支持旅行社恢复发展的通知》等。这些政策对旅游业的复苏发展而言都可谓雪中送炭。
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-horizon form-group">
+                                <label><span class="require-tip">*</span>回复内容：</label>
+                                <div class="el w" id="reply">
+                                    实际上，自疫情发生以来，国家相关部门已陆续出台一系列纾困政策，加持旅游业复苏。例如，2021年4月，文化和旅游部、中国人民银行、中国银行保险监督管理委员会下发《关于抓好金融政策落实 进一步支持演出企业和旅行社等市场主体纾困发展的通知》；2021年6月，文化和旅游部发布《关于加强政策扶持进一步支持旅行社发展的通知》；2021年10月又发布《关于用好旅游服务质量保证金政策进一步支持旅行社恢复发展的通知》等。这些政策对旅游业的复苏发展而言都可谓雪中送炭。
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</article>
+<footer></footer>
+<script>
+    $(document).ready(function() {
+        $("[data-toggle=\"tooltip\"]").tooltip();
+        focusMenu(3);
+    });
+
+    // 查询
+    function searchResult() {
+    }
+</script>
+</body>
+</html>

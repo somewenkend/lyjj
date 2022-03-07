@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>洛阳市老城区民营经济服务平台</title>
+    <link rel="stylesheet" type="text/css" href="/plugin/basic/css/min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/page.css" />
+    <script src="/plugin/basic/js/min.js"></script>
+    <script src="/js/jquery.validate.min.js"></script>
+    <script src="/js/common.js"></script>
+    <style>
+        .step-box{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: 30px;
+        }
+        .step-box > .step{
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            background-color: var(--main-light);
+            color: #fff;
+        }
+        .step-box > .step:not(:last-child){border-right: 1px solid var(--main-light);}
+        .step-box > .step.active{background-color: var(--main); color: #fff;}
+    </style>
+</head>
+<body>
+<header></header>
+<article>
+    <div class="container pr">
+        <div class="content">
+            <div class="menu" id="menu"></div>
+            <div class="cur-post mt20 mb50">
+                <i class="fa fa-home mr5 f18"></i>
+                <span>当前位置：</span>
+                <a href="/home/home.html">首页</a>
+                <span class="c999"> > </span><span>企业诉求</span>
+            </div>
+            <div class="step-box">
+                <div class="step active">
+                    <span>受理范围</span>
+                </div>
+                <div class="step">
+                    <span>企业诉求</span>
+                </div>
+                <div class="step">
+                    <span>结果查询</span>
+                </div>
+                <div class="step">
+                    <span>我的诉求</span>
+                </div>
+            </div>
+            <div class="module-info">
+                <div class="essay mt20">
+                    <p>
+                        实际上，自疫情发生以来，国家相关部门已陆续出台一系列纾困政策，加持旅游业复苏。例如，2021年4月，文化和旅游部、中国人民银行、中国银行保险监督管理委员会下发《关于抓好金融政策落实 进一步支持演出企业和旅行社等市场主体纾困发展的通知》；2021年6月，文化和旅游部发布《关于加强政策扶持进一步支持旅行社发展的通知》；2021年10月又发布《关于用好旅游服务质量保证金政策进一步支持旅行社恢复发展的通知》等。这些政策对旅游业的复苏发展而言都可谓雪中送炭。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
+<footer></footer>
+<script>
+    $(document).ready(function() {
+        focusMenu(3);
+    });
+</script>
+</body>
+</html>
