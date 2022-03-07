@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>洛阳市老城区民营经济服务平台</title>
+    <link rel="stylesheet" type="text/css" href="/plugin/basic/css/min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/page.css" />
+    <script src="/plugin/basic/js/min.js"></script>
+    <script src="/js/jquery.validate.min.js"></script>
+    <script src="/js/common.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+<header></header>
+<article>
+    <div class="container pr">
+        <div class="content">
+            <div class="menu" id="menu"></div>
+            <div class="cur-post mt20 mb50">
+                <i class="fa fa-home mr5 f18"></i>
+                <span>当前位置：</span>
+                <a href="/home/home.html">首页</a>
+                <span class="c999"> > </span><a href="#">免审即享</a>
+                <span class="c999"> > </span><span>xxxxx</span>
+            </div>
+            <div class="module-info">
+                <div class="mt20">
+                    <div class="form-horizon" style="justify-content: end;">
+                        <label>上传申请文件：</label>
+                        <div class="el w">
+                            <input type="file" id="theFile" onchange="getFile(this)">
+                            <input class="form-control cp" readonly placeholder="点击选择文件" onclick="selectFile(this)"/>
+                        </div>
+                    </div>
+                    <div class="tc">
+                        <button class="btn btn-primary" type="button" onclick="request()">提交申请</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
+<footer></footer>
+<script>
+    $(document).ready(function() {
+        focusMenu(4);
+    });
+
+    // 选择文件
+    function selectFile(el) {
+        $(el).prev("input").click();
+    }
+
+    // file的change事件
+    function getFile(el) {
+        $(el).next("input").val(el.files[0].name);
+    }
+
+    // 提交申请
+    function request() {
+        // ajax
+        var data = new FormData();
+        data.append("file", $("#theFile")[0].files[0]);
+    }
+</script>
+</body>
+</html>
