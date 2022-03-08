@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>洛阳市老城区民营经济服务平台</title>
+    <link rel="stylesheet" type="text/css" href="/plugin/basic/css/min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/page.css" />
+    <script src="/plugin/basic/js/min.js"></script>
+    <script src="/js/jquery.validate.min.js"></script>
+    <script src="/js/common.js"></script>
+    <style>
+        .form-group{margin-bottom: 25px;}
+    </style>
+</head>
+<body>
+<header></header>
+<article>
+    <div class="container pr">
+        <div class="content">
+            <div class="menu manMenu" id="manMenu"></div>
+            <div class="cur-post mt20 mb50">
+                <i class="fa fa-home mr5 f18"></i>
+                <span>当前位置：</span>
+                <a href="/home/home.html">首页</a>
+                <span class="c999"> > </span><span>内部账号管理</span>
+                <button type="button" class="btn btn-primary btn-sm fr" onclick="add()">新增内部账号</button>
+            </div>
+            <div class="module-info">
+                <div class="table-responsive mt20">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr><th>用户名</th><th>联系人</th><th>联系人电话</th><th>部门</th><th>操作</th></tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 新增/编辑弹框 -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="operateBox">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="manTitle">新增内部账号</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="theForm">
+                        <div class="form-group">
+                            <label><span class="require-tip">*</span>联系人：</label>
+                            <input autocom plete="off" class="form-control" placeholder="请输入部门名称" type="text" name="name" />
+                        </div>
+                        <div class="form-group">
+                            <label><span class="require-tip">*</span>联系电话：</label>
+                            <input autocomplete="off" class="form-control" placeholder="请输入联系电话" type="text" name="phone" />
+                        </div>
+                        <div class="form-group">
+                            <label><span class="require-tip">*</span>所属部门：</label>
+                            <select id="department" class="form-control" name="department">
+                                <option value="">请选择</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" onclick="save()">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</article>
+<footer></footer>
+<script>
+    $(document).ready(function() {
+        focusManMenu(8);
+        getNews();
+        // 监听模态框关闭事件
+        $('#myModal').on('hidden.bs.modal', function (e) {
+            // 重置表单
+            $("#theForm")[0].reset();
+        })
+        // ajax请求所有部门
+        $("#department").append([].map(item => {
+            return `<option value="${item.id}">${item.name}</option>`
+        }));
+    });
+
+    // 获取部门列表
+    function getNews() {
+        // ajax
+        // 拼装部门列表
+        // spellDepartmentList([]);
+    }
+
+    // 拼装部门列表
+    function spellDepartmentList(list) {
+        var newsHtml = "";
+        newsHtml = list.map(item => {
+            return `
+                <tr>
+                    <td>${item.name}</td>
+                    <td>${item.contact}</td>
+                    <td>${item.otherNo}</td>
+                    <td>${item.department}</td>
+                    <td>
+                        <button type="button" class="btn btn-primary btn-xs" data-id="${item.id}" onclick="deleteDe(this)">删除</button>
+                    </td>
+                </tr>
+            `;
+        }).join("");
+        $(".news-box").append(newsHtml);
+    }
+
+    // 新增内部账号
+    function add() {
+        $("#operateBox").modal("show");
+
+        // ajax后将新增的内部账号对象返回
+        spellDepartmentList([{}]);
+    }
+
+    // 删除内部账号
+    function deleteDe(el) {
+        var depart = $(el).closest("tr").find("td").eq(0).text();
+        var r = confirm('确定要删除"' + depart + '"吗？');
+        if (r==true) { // 确定删除
+            var id = $(el).data("id");
+            // ajax后删除当前行
+            $(el).closest("tr").remove();
+        }
+    }
+
+    // 保存
+    function save() {
+        if (!verify().form()) {
+            return;
+        }
+    }
+
+    // 表单校验
+    function verify() {
+        return $("#theForm").validate({
+            rules: {
+                name: "required",
+                phone: "required",
+                department: "required"
+            },
+            messages: {
+                name: "请输入联系人",
+                phone: "请输入联系电话",
+                department: "请选择所属部门"
+            }
+        })
+    }
+
+    verify();
+
+</script>
+</body>
+</html>

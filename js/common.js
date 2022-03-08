@@ -215,6 +215,7 @@ $(document).ready(function() {
             </div>
         </div>
     `;
+    // 客户端菜单
     var menuContent = `
         <div class="module" id="1">
             <a href="/home/home.html">首页</a>
@@ -268,6 +269,33 @@ $(document).ready(function() {
             <a href="#">商会展示</a>
         </div>
     `;
+    // 管理端菜单
+    var menuManContent = `
+        <div class="module" id="1">
+            <a href="/home/home.html">首页</a>
+        </div>
+        <div class="module" id="2">
+            <a href="#">账号审核</a>
+        </div>
+        <div class="module" id="3">
+            <a href="#">板块管理</a>
+        </div>
+        <div class="module" id="4">
+            <a href="#">帖子审核</a>
+        </div>
+        <div class="module" id="5">
+            <a href="#">诉求回复</a>
+        </div>
+        <div class="module" id="6">
+            <a href="#">面审即享审核</a>
+        </div>
+        <div class="module" id="7">
+            <a href="#">部门管理</a>
+        </div>
+        <div class="module" id="8">
+            <a href="#">内部账号管理</a>
+        </div>
+    `;
     var footerContent = `
         <div class="link-box">
             <div class="row">
@@ -298,9 +326,13 @@ $(document).ready(function() {
     if ($("header").length > 0) {
         $("header").html(headerContent);
     }
-    // 菜单
+    // 客户端菜单
     if ($("#menu").length > 0) {
         $("#menu").html(menuContent);
+    }
+    // 管理端菜单
+    if ($("#manMenu").length > 0) {
+        $("#manMenu").html(menuManContent);
     }
     // 脚部
     if ($("footer").length > 0) {
@@ -308,12 +340,21 @@ $(document).ready(function() {
     }
 })
 
-// 选中对应的菜单
+// 选中对应的客户端菜单
 function focusMenu(id) {
     $("#menu").find(".module").removeClass("active");
     $("#menu").find(".module#"+id).addClass("active");
     $("#menu").animate({
         scrollLeft: $("#menu").find(".module#"+id).index() * 150
+    }, 0);
+}
+
+// 选中对应的管理端菜单
+function focusManMenu(id) {
+    $("#manMenu").find(".module").removeClass("active");
+    $("#manMenu").find(".module#"+id).addClass("active");
+    $("#manMenu").animate({
+        scrollLeft: $("#manMenu").find(".module#"+id).index() * 200
     }, 0);
 }
 

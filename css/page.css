@@ -1001,6 +1001,8 @@ footer .copyright{text-align: center; padding: 5px; background-color: var(--main
   margin: 0 -40px;
   overflow-x: auto;
 }
+/*管理端菜单*/
+.manMenu{grid-template-columns: repeat(8, 200px);}
 .menu::-webkit-scrollbar {
   height: 12px;
 }
@@ -1048,7 +1050,7 @@ footer .copyright{text-align: center; padding: 5px; background-color: var(--main
 .essay img{max-height: 500px;}
 .essay p{text-indent: 32px;}
 /*新闻列表css*/
-a.news{
+.news-box a.news{
   display: flex;
   align-items: center;
   height: 20px;
@@ -1058,7 +1060,7 @@ a.news{
   line-height: 42px;
   border-bottom: 1px solid #1D2939;
 }
-a.news span{
+.news-box a.news span{
   display: inline-block;
   transition: padding-left 0.1s;
   max-width: calc(100% - 110px);
@@ -1066,8 +1068,8 @@ a.news span{
   text-overflow: ellipsis;
   overflow: hidden;
 }
-a.news:hover span{padding-left: 20px;}
-a.news span.fr{font-size: 14px; color: #999; margin-left: auto;}
+.news-box a.news:hover span{padding-left: 20px;}
+.news-box a.news span.fr{font-size: 14px; color: #999; margin-left: auto;}
 /*板块主列表样式*/
 .row.main-list{margin-right: -20px; margin-left: -20px; margin-top: -20px;}
 .row.main-list > .col-md-4{padding-right: 20px; padding-left: 20px;}
@@ -1076,3 +1078,26 @@ a.news span.fr{font-size: 14px; color: #999; margin-left: auto;}
 .news-main > a.news{height: 32px; line-height: 32px;}
 /*必输项标识*/
 .require-tip{color: #c00;}
+/*图片列表*/
+.pic-news-box{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 45%);
+  grid-row-gap: 20px;
+  grid-column-gap: 20px;
+}
+.pic-news-box a{height: 100%; overflow: hidden;color: #1D2939;transition: all 0.1s;}
+.pic-news-box a:hover{transform: scale(1.1);}
+.pic-news-box img{
+  width: 100%;
+  height: calc(100% - 30px);
+  object-fit: cover;
+  border-radius: 5px;
+}
+.pic-news-box a span{
+  display: block;
+  line-height: 30px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

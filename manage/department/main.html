@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>洛阳市老城区民营经济服务平台</title>
+    <link rel="stylesheet" type="text/css" href="/plugin/basic/css/min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/page.css" />
+    <script src="/plugin/basic/js/min.js"></script>
+    <script src="/js/jquery.validate.min.js"></script>
+    <script src="/js/common.js"></script>
+    <style>
+        .form-group{margin-bottom: 25px;}
+    </style>
+</head>
+<body>
+<header></header>
+<article>
+    <div class="container pr">
+        <div class="content">
+            <div class="menu manMenu" id="manMenu"></div>
+            <div class="cur-post mt20 mb50">
+                <i class="fa fa-home mr5 f18"></i>
+                <span>当前位置：</span>
+                <a href="/home/home.html">首页</a>
+                <span class="c999"> > </span><span>部门管理</span>
+                <button type="button" class="btn btn-primary btn-sm fr" onclick="add()">新增部门</button>
+            </div>
+            <div class="module-info">
+                <div class="table-responsive mt20">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr><th>部门名称</th><th>联系方式</th><th>分机号</th><th>是否显示联系</th><th>操作</th></tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 新增/编辑弹框 -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="operateBox">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="manTitle"></h4>
+                </div>
+                <div class="modal-body">
+                    <form id="theForm">
+                        <div class="form-group">
+                            <label><span class="require-tip">*</span>部门名称：</label>
+                            <input autocomplete="off" class="form-control" placeholder="请输入部门名称" type="text" name="name" />
+                        </div>
+                        <div class="form-group">
+                            <label><span class="require-tip">*</span>是否显示联系我们：</label>
+                            <div class="">
+                                <span>
+                                    <input autocomplete="off" type="radio" value="是" name="isView" checked/>
+                                    <span>是（在联系我们中显示）</span>
+                                </span>
+                                <span>
+                                    <input autocomplete="off" type="radio" value="否" name="isView"/>
+                                    <span>否（在联系我们中不显示）</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label><span class="require-tip">*</span>联系电话：</label>
+                            <input autocomplete="off" class="form-control" placeholder="请输入联系电话" type="text" name="phone" />
+                        </div>
+                        <div class="form-group">
+                            <label><span class="require-tip">*</span>分机号：</label>
+                            <input autocomplete="off" class="form-control" placeholder="请输入分机号" type="text" name="otherNo" />
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" onclick="save()">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</article>
+<footer></footer>
+<script>
+    var operate; // 1:新增，2:编辑
+    $(document).ready(function() {
+        focusManMenu(7);
+        getNews();
+        // 监听模态框关闭事件
+        $('#myModal').on('hidden.bs.modal', function (e) {
+            // 重置表单
+            $("#theForm")[0].reset();
+        })
+    });
+
+    // 获取部门列表
+    function getNews() {
+        // ajax
+        // 拼装部门列表
+        // spellDepartmentList([]);
+    }
+
+    // 拼装部门列表
+    function spellDepartmentList(list) {
+        var newsHtml = "";
+        newsHtml = list.map(item => {
+            return `
+                <tr>
+                    <td>${item.name}</td>
+                    <td>${item.contact}</td>
+                    <td>${item.otherNo}</td>
+                    <td>${item.isView}</td>
+                    <td>
+                        <button type="button" class="btn btn-warning btn-xs" data-id="${item.id}" onclick="edit(this)">修改</button>
+                        <button type="button" class="btn btn-primary btn-xs" data-id="${item.id}" onclick="deleteDe(this)">删除</button>
+                    </td>
+                </tr>
+            `;
+        }).join("");
+        $(".news-box").append(newsHtml);
+    }
+
+    // 新增部门
+    function add() {
+        operate = 1;
+        $("#manTitle").text("新增部门");
+        $("#operateBox").modal("show");
+
+        // ajax后将新增的部门对象返回
+        spellDepartmentList([{}]);
+    }
+
+    // 编辑部门
+    function edit(el) {
+        operate = 2;
+        $("#manTitle").text("编辑部门");
+        var $tr = $(el).closest("tr");
+        // 表单赋值
+        $("[name=name]").val($tr.find('td').eq(0).text());
+        $("[name=isView]").val([$tr.find('td').eq(1).text()]);
+        $("[name=phone]").val($tr.find('td').eq(0).text());
+        $("[name=otherNo]").val($tr.find('td').eq(0).text());
+        $("#operateBox").modal("show");
+        var id = $(el).data("id");
+    }
+
+    // 删除部门
+    function deleteDe(el) {
+        var depart = $(el).closest("tr").find("td").eq(0).text();
+        var r = confirm('确定要删除"' + depart + '"吗？');
+        if (r==true) { // 确定删除
+            var id = $(el).data("id");
+            // ajax后删除当前行
+            $(el).closest("tr").remove();
+        }
+    }
+
+    // 保存
+    function save() {
+        if (!verify().form()) {
+            return;
+        }
+    }
+
+    // 表单校验
+    function verify() {
+        return $("#theForm").validate({
+            rules: {
+                name: "required",
+                phone: "required",
+                otherNo: "required"
+            },
+            messages: {
+                name: "请输入部门名称",
+                phone: "请输入联系电话",
+                otherNo: "请输入分机号"
+            }
+        })
+    }
+
+    verify();
+
+</script>
+</body>
+</html>
