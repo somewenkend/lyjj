@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>洛阳市老城区民营经济服务平台</title>
+    <link rel="stylesheet" type="text/css" href="/plugin/basic/css/min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/page.css" />
+    <script src="/plugin/basic/js/min.js"></script>
+    <script src="/js/jquery.validate.min.js"></script>
+    <script src="/js/common.js"></script>
+    <script src="/plugin/ueditor1_4_3_3/ueditor.config.js"></script>
+    <script src="/plugin/ueditor1_4_3_3/ueditor.all.js"></script>
+    <style>
+        .form-group{margin-bottom: 25px;}
+    </style>
+</head>
+<body>
+<header></header>
+<article>
+    <div class="container pr">
+        <div class="content">
+            <div class="menu" id="menu"></div>
+            <div class="cur-post mt20 mb50">
+                <i class="fa fa-home mr5 f18"></i>
+                <span>当前位置：</span>
+                <a href="/home/home.html">首页</a>
+                <span class="c999"> > </span><a href="#">免审即享</a>
+                <span class="c999"> > </span><span>发文</span>
+            </div>
+            <div class="module-info">
+                <form id="theForm">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label><span class="require-tip">*</span>板块：</label>
+                                <div class="el w">
+                                    <select class="form-control" id="plate" name="plate">
+                                        <option value="">请选择</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label><span class="require-tip">*</span>是否推送：</label>
+                                <div class="">
+                                <span>
+                                    <input autocomplete="off" type="radio" value="是" name="isPush" checked/>
+                                    <span>是</span>
+                                </span>
+                                <span class="ml30">
+                                    <input autocomplete="off" type="radio" value="否" name="isPush"/>
+                                    <span>否</span>
+                                </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label><span class="require-tip">*</span>推送范围：</label>
+                                <div class="el w">
+                                    <select class="form-control" id="pushScope" name="pushScope">
+                                        <option value="">请选择</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label><span class="require-tip">*</span>标题：</label>
+                                <div class="el w">
+                                    <input class="form-control" name="title" placeholder="请输入标题"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label><span class="require-tip">*</span>内容：</label>
+                                <div class="el w">
+                                    <textarea rows="5" name="title" id="title" placeholder="请输入内容"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tc">
+                        <button class="btn btn-primary" type="button" onclick="request()">提交发布</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</article>
+<footer></footer>
+<script>
+    var ue;
+    $(document).ready(function() {
+        focusMenu(4);
+        ue = UE.getEditor('title', {
+            initialFrameHeight : 220,
+            toolbars: [["inserttable","link","unlink","emotion","insertimage","attachment","|","justifyleft","justifycenter","justifyright","justifyjustify","indent","bold","italic","underline","fontborder","strikethrough","forecolor",'fontsize',"fontfamily","fullscreen"]],
+        });
+    });
+
+    // 提交发布
+    function request() {
+        if (!verify().form()) {
+            return;
+        }
+        if (ue.getContent().trim() == "") {
+            alert("请输入内容！");
+            return;
+        }
+    }
+
+    // 表单校验
+    function verify() {
+        return $("#theForm").validate({
+            rules: {
+                plate: "required",
+                pushScope: "required"
+            },
+            messages: {
+                plate: "请选择板块",
+                pushScope: "请输入标题"
+            }
+        })
+    }
+
+    verify();
+</script>
+</body>
+</html>
