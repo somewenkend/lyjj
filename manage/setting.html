@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>洛阳市老城区民营经济服务平台</title>
+    <link rel="stylesheet" type="text/css" href="/plugin/basic/css/min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/page.css" />
+    <script src="/plugin/basic/js/min.js"></script>
+    <script src="/js/jquery.validate.min.js"></script>
+    <script src="/js/common.js"></script>
+    <style>
+        .carousel-control.left, .carousel-control.right, .carousel-inner{border-radius: 7px; cursor: pointer;}
+        .carousel-caption{opacity: .8;}
+        .carousel-inner>.item>a>img, .carousel-inner>.item>img, .img-responsive, .thumbnail a>img, .thumbnail>img {
+            display: block;
+            object-fit: cover;
+            height: 260px;
+            width: 100%;
+        }
+        a.news{
+            display: flex;
+            align-items: center;
+
+            color: #1D2939;
+            height: 52px;
+            font-size: 16px;
+            line-height: 52px;
+            border-bottom: 1px solid #1D2939;
+            margin-left: 15px;
+        }
+        a.news span{
+            max-width: calc(100% - 115px);
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+
+        .web-map{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: 150px 150px;
+            grid-column-gap: 100px;
+            grid-row-gap: 50px;
+            margin-top: 50px;
+        }
+        .web-map .module{
+            border-radius: 7px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            text-align: center;
+            padding: 20px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            cursor: pointer;
+            transition: 0.1s all;
+            background-image: url(/img/border-gold.png);
+            background-size: 100% 100%;
+            background-position: center;
+            color: #e0cd9f;
+        }
+        @media (max-width: 1366px) {
+            .web-map .module{
+                font-size: 14px;
+                padding: 15px;
+            }
+        }
+        .web-map .module a{color: #e0cd9f;}
+        .web-map .module:hover{
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+<header></header>
+<article>
+    <div class="container pr">
+        <div class="content">
+            <div class="menu manMenu" id="manMenu"></div>
+            <div class="cur-post mt20 mb50">
+                <i class="fa fa-home mr5 f18"></i>
+                <span>当前位置：</span>
+                <a href="/home/home.html">首页</a>
+                <span class="c999"> > </span><span>管理设置</span>
+            </div>
+            <div class="module-info">
+                <div class="web-map">
+                    <a href="#" class="module">
+                        <span>账号<br>审核</span>
+                    </a>
+                    <a href="#" class="module">
+                        <span>板块<br>管理</span>
+                    </a>
+                    <a href="#" class="module">
+                        <span>帖子<br>审核</span>
+                    </a>
+                    <a href="#" class="module">
+                        <span>诉求<br>回复</span>
+                    </a>
+                    <a href="#" class="module">
+                        <span href="#">免审即享<br>审核</span>
+                    </a>
+                    <a href="#" class="module">
+                        <span href="#">部门<br>管理</span>
+                    </a>
+                    <a href="#" class="module">
+                        <span href="#">内部账号<br>管理</span>
+                    </a>
+                    <a href="#" class="module">
+                        <span href="#">数据<br>看板</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
+<footer></footer>
+<script>
+    $(document).ready(function() {
+        focusManMenu(1);
+    });
+
+</script>
+</body>
+</html>
