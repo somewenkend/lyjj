@@ -1075,7 +1075,8 @@ footer .copyright{text-align: center; padding: 5px; background-color: var(--main
 .row.main-list > .col-md-4{padding-right: 20px; padding-left: 20px;}
 .title-main{margin-bottom: 10px; margin-top: 20px;}
 .title-main > i.fa-flag{color: var(--main);}
-.news-main > a.news{height: 32px; line-height: 32px;}
+.news-main > a.news{height: 32px; line-height: 32px; display: flex; align-items: center; color: #1D2939;}
+.news-main > a.news .fr{margin-left: auto;}
 /*必输项标识*/
 .require-tip{color: #c00;}
 /*图片列表*/
