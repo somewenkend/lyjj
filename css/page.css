@@ -1092,7 +1092,6 @@ footer .copyright{text-align: center; padding: 5px; background-color: var(--main
 .pic-news-box img{
   width: 100%;
   height: calc(100% - 30px);
-  object-fit: cover;
   border-radius: 5px;
 }
 .pic-news-box a span{
