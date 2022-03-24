@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>洛阳市老城区民营经济服务平台</title>
+    <link rel="stylesheet" type="text/css" href="/plugin/basic/css/min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/page.css" />
+    <script src="/plugin/basic/js/min.js"></script>
+    <script src="/js/jquery.validate.min.js"></script>
+    <script src="/js/common.js"></script>
+    <style>
+        .step-box{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .step-box > .step{
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            background-color: var(--main-light);
+            color: #fff;
+            cursor: pointer;
+        }
+        .step-box > .step:hover{background-color: var(--main-deep);}
+        .step-box > .step.active{background-color: var(--main); color: #fff;}
+        .form-horizon > label{width: 131px; text-align: right; flex: none;}
+        .no-select{background-color: #eee; pointer-events: none;}
+        .require-tip{display: none;}
+    </style>
+</head>
+<body>
+<header></header>
+<article>
+    <div class="container pr">
+        <div class="content">
+            <div class="menu" id="menu"></div>
+            <div class="cur-post mt20 mb50">
+                <i class="fa fa-home mr5 f18"></i>
+                <span>当前位置：</span>
+                <a href="/home/home.html">首页</a>
+                <span class="c999"> > </span><span>个人中心</span>
+            </div>
+            <div class="module-info">
+                <div class="step-box mb20">
+                    <a class="step" href="#">
+                        <span>我的发布</span>
+                    </a>
+                    <a class="step active" href="#">
+                        <span>我的账号</span>
+                    </a>
+                </div>
+                <form id="verifyForm">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-horizon form-group">
+                                <label><span class="require-tip">*</span>用户名：</label>
+                                <div class="el w">
+                                    <input autocomplete="off" class="form-control w no-select" readonly placeholder="请输入用户名" type="text" name="name" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-horizon form-group">
+                                <label><span class="require-tip">*</span>统一社会信用代码：</label>
+                                <div class="el w">
+                                    <input autocomplete="off" class="form-control w no-select" readonly placeholder="请输入统一社会信用代码" type="text" name="code" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-horizon form-group">
+                                <label><span class="require-tip">*</span>企业名称：</label>
+                                <div class="el w">
+                                    <input autocomplete="off" class="form-control no-select" placeholder="请输入企业名称" type="text" name="companyName" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-horizon form-group">
+                                <label><span class="require-tip">*</span>企业法人：</label>
+                                <div class="el w">
+                                    <input autocomplete="off" class="form-control w no-select" placeholder="请输入企业法人" type="text" name="corporation" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-horizon form-group">
+                                <label><span class="require-tip">*</span>法人身份证：</label>
+                                <div class="el w">
+                                    <input autocomplete="off" class="form-control w no-select" placeholder="请输入法人身份证" type="text" name="corporationNo" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-horizon form-group">
+                                <label><span class="require-tip">*</span>法人手机号：</label>
+                                <div class="el w">
+                                    <input autocomplete="off" class="form-control w no-select" placeholder="请输入法人手机号" type="text" name="corporationPhone" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-horizon form-group">
+                                <label><span class="require-tip">*</span>联系人：</label>
+                                <div class="el w">
+                                    <input autocomplete="off" class="form-control w no-select" placeholder="请输入联系人" type="text" name="contactPerson" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-horizon form-group">
+                                <label><span class="require-tip">*</span>联系人电话：</label>
+                                <div class="el w">
+                                    <input autocomplete="off" class="form-control w no-select" placeholder="联系人电话" type="text" name="contactPersonPhone" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-horizon form-group">
+                                <label><span class="require-tip">*</span>所属行业：</label>
+                                <div class="el w">
+                                    <select class="form-control no-select" name="industry">
+                                        <option value="">请选择所属行业</option>
+                                        <option value="1">电力、热力、燃气及水生产和供应业</option>
+                                        <option value="2">建筑业</option>
+                                        <option value="3">批发和零售业</option>
+                                        <option value="4">交通运输、仓储和邮政业</option>
+                                        <option value="5">住宿和餐饮业</option>
+                                        <option value="6">信息传输、软件和信息技术服务业</option>
+                                        <option value="7">金融业</option>
+                                        <option value="8">房地产业</option>
+                                        <option value="9">租赁和商务服务业</option>
+                                        <option value="10">科学研究和技术服务业</option>
+                                        <option value="11">水利、环境和公共设施管理业</option>
+                                        <option value="12">居民服务、修理和其他服务业</option>
+                                        <option value="13">教育</option>
+                                        <option value="14">农、林、牧、渔业</option>
+                                        <option value="15">采矿业</option>
+                                        <option value="16">制造业</option>
+                                        <option value="17">卫生和社会工作</option>
+                                        <option value="18">文化、体育和娱乐业</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tc">
+                        <button class="btn btn-primary btn-modify" type="button" onclick="modify()">修改账号信息</button>
+                        <button class="btn btn-primary btn-save none" type="button" onclick="save()">保存</button>
+                        <button class="btn btn-default btn-save none ml10" type="button" onclick="cancel()">取消</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</article>
+<footer></footer>
+<script>
+    $(document).ready(function() {
+        focusMenu(1);
+    });
+
+    // 修改
+    function modify() {
+        $(".btn-modify").hide();
+        $(".btn-save").show();
+        $("input, select").removeClass("no-select");
+        $(".require-tip").show();
+    }
+
+    // 取消
+    function cancel() {
+        window.location.reload();
+    }
+
+    // 保存
+    function save() {
+        if (!verify().form()) {
+            return;
+        }
+    }
+
+    // 表单校验
+    function verify() {
+        return $("#verifyForm").validate({
+            rules: {
+                name: "required",
+                code: "required",
+                companyName: "required",
+                corporation: "required",
+                corporationNo: {
+                    required: true,
+                    isIdCard: true
+                },
+                corporationPhone: {
+                    required: true,
+                    isPhone: true
+                },
+                contactPerson: "required",
+                contactPersonPhone: {
+                    required: true,
+                    isPhone: true
+                },
+                industry: "required"
+            },
+            messages: {
+                name: "请输入用户名",
+                code: "请输入统一社会信用代码",
+                companyName: "请输入企业名称",
+                corporation: "请输入企业法人",
+                corporationNo: {
+                    required: "请输入法人身份证"
+                },
+                corporationPhone: {
+                    required: "请输入法人手机号"
+                },
+                contactPerson: "请输入联系人",
+                contactPersonPhone: {
+                    required: "请输入联系人电话"
+                },
+                industry: "请选择所属行业"
+            }
+        })
+    }
+
+    verify();
+
+    // 手机号校验
+    jQuery.validator.addMethod("isPhone", function (value, element) {
+        var phoneRex =/^1[0-9]{10}$/;
+        return phoneRex.test(value);
+    }, "请输入正确格式的手机号");
+
+    // 身份证校验
+    jQuery.validator.addMethod("isIdCard", function (value, element) {
+        return idCardNoUtil.checkIdCardNo(value);
+    }, "请输入正确格式的身份证号");
+
+</script>
+</body>
+</html>

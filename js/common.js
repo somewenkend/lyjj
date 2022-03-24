@@ -205,122 +205,90 @@ var idCardNoUtil = {
 $(document).ready(function() {
     var headerContent = `
         <div class="top">
-            <h4><i class="fa fa-fire mr5"></i>欢迎您来到洛阳市老城区民营经济服务平台</h4>
+            <h4>欢迎您来到洛阳市老城区民营经济服务平台</h4>
             <div class="link">
-                <a href="/login.html" class="ml20"><i class="fa fa-location-arrow fa-fw"></i>登录</a>
-                <a href="/login/register.html" class="ml20"><i class="fa fa-user-plus fa-fw"></i>注册</a>
-                <a href="/home/aboutUs.html" class="ml20"><i class="fa fa-info-circle fa-fw"></i>关于我们</a>
-                <a href="/home/contactUs.html" class="ml20"><i class="fa fa-phone fa-fw"></i>联系我们</a>
-                <a href="#" class="ml20"><i class="fa fa-cog fa-fw"></i>设置</a>
+                <a id="login" href="/login" class="ml20"><i class="fa fa-location-arrow fa-fw"></i>登录</a>
+                <a id="register" href="/userRegister" class="ml20"><i class="fa fa-user-plus fa-fw"></i>注册</a>
+                <a id="newsRelease" href="/newsRelease" class="ml20"><i class="fa fa-newspaper-o fa-fw"></i>资讯发布</a>
+                <a href="/aboutUs" class="ml20"><i class="fa fa-info-circle fa-fw"></i>关于我们</a>
+                <a href="/contactUs" class="ml20"><i class="fa fa-phone fa-fw"></i>联系我们</a>
+                <a id="setUp" href="/manageHome" class="ml20"><i class="fa fa-cog fa-fw"></i>设置</a>
+                <a id="exit" onclick="exit();" href="#" class="ml20"><i class="fa fa-sign-out fa-fw"></i>退出</a>
             </div>
         </div>
     `;
-    // 客户端菜单
     var menuContent = `
-        <div class="module" id="1">
-            <a href="/home/home.html">首页</a>
-        </div>
-        <div class="module" id="2">
-            <a href="#">企业家培训</a>
-        </div>
-        <div class="module" id="3">
-            <a href="#">企业诉求</a>
-        </div>
-        <div class="module" id="4">
-            <a href="#">政策宣讲</a>
-        </div>
-        <div class="module" id="5">
-            <a href="#">银企对接</a>
-        </div>
-        <div class="module" id="6">
-            <a href="#">产销对接</a>
-        </div>
-        <div class="module" id="7">
-            <a href="#">项目对接</a>
-        </div>
-        <div class="module" id="8">
-            <a href="#">科技成果转换</a>
-        </div>
-        <div class="module" id="9">
-            <a href="#">劳务对接</a>
-        </div>
-        <div class="module" id="10">
-            <a href="#">民营企业评议</a>
-        </div>
-        <div class="module" id="11">
-            <a href="#">中介平台</a>
-        </div>
-        <div class="module" id="12">
-            <a href="#">司法综合服务</a>
-        </div>
-        <div class="module" id="13">
-            <a href="#">无人助万企</a>
-        </div>
-        <div class="module" id="14">
-            <a href="#">民企荣誉</a>
-        </div>
-        <div class="module" id="15">
-            <a href="#">乡村振兴</a>
-        </div>
-        <div class="module" id="16">
-            <a href="#">新闻资询</a>
-        </div>
-        <div class="module" id="17">
-            <a href="#">商会展示</a>
-        </div>
+        <a href="/home/home.html" class="module" id="1"><span>首页</span></a>
+        <a href="#" class="module" id="2"><span>企业家培训</span></a>
+        <a href="#" class="module" id="3"><span>企业诉求<span></a>
+        <a href="#" class="module" id="4"><span>政策宣讲<span></a>
+        <a href="#" class="module" id="5"><span>银企对接<span></a>
+        <a href="#" class="module" id="6"><span>产销对接<span></a>
+        <a href="#" class="module" id="7"><span>项目对接<span></a>
+        <a href="#" class="module" id="8"><span>科技成果转换<span></a>
+        <a href="#" class="module" id="9"><span>劳务对接<span></a>
+        <a href="#" class="module" id="10"><span>民营企业评议<span></a>
+        <a href="#" class="module" id="11"><span>中介平台<span></a>
+        <a href="#" class="module" id="12"><span>司法综合服务<span></a>
+        <a href="#" class="module" id="13"><span>无人助万企<span></a>
+        <a href="#" class="module" id="14"><span>民企荣誉<span></a>
+        <a href="#" class="module" id="15"><span>乡村振兴<span></a>
+        <a href="#" class="module" id="16"><span>新闻资询<span></a>
+        <a href="#" class="module" id="17"><span>商会展示<span></a>
     `;
-    // 管理端菜单
-    var menuManContent = `
-        <div class="module" id="1">
-            <a href="/home/home.html">首页</a>
-        </div>
-        <div class="module" id="2">
-            <a href="#">账号审核</a>
-        </div>
-        <div class="module" id="3">
-            <a href="#">板块管理</a>
-        </div>
-        <div class="module" id="4">
-            <a href="#">帖子审核</a>
-        </div>
-        <div class="module" id="5">
-            <a href="#">诉求回复</a>
-        </div>
-        <div class="module" id="6">
-            <a href="#">面审即享审核</a>
-        </div>
-        <div class="module" id="7">
-            <a href="#">部门管理</a>
-        </div>
-        <div class="module" id="8">
-            <a href="#">内部账号管理</a>
-        </div>
-    `;
+    //获取底部导航
     var footerContent = `
         <div class="link-box">
             <div class="row">
                 <div class="col-sm-4">
-                    <p>
-                        <a href="#">
+                    <p class="about">
+                        <a href="/aboutUs">
                             <i class="fa fa-caret-right mr5"></i>关于我们
                         </a>
-                        <a href="#" class="ml20">
+                        <a href="/contactUs" class="ml20">
                             <i class="fa fa-caret-right mr5"></i>联系我们
                         </a>
                     </p>
-                    <p>建设单位：xxxxxxxxxxxx</p>
-                    <p>技术支持：xxxxxxxxxxxx</p>
+                    <p>建设单位：洛阳市老城区统战部</p>
+                    <p>技术支持：中国联合网络通信集团有限公司</p>
                 </div>
                 <div class="col-sm-4"></div>
                 <div class="col-sm-4">
                     <p>友情链接</p>
-                    <p><a href="#"><i class="fa fa-caret-right mr5"></i>xxxxxxxxx</a></p>
-                    <p><a href="#"><i class="fa fa-caret-right mr5"></i>xxxxxxxxx</a></p>
-                    <p><a href="#"><i class="fa fa-caret-right mr5"></i>xxxxxxxxx</a></p>
+                    <p><a href="http://www.lyhero.com/" target="_blank" ><i class="fa fa-caret-right mr5"></i>洛阳人才网</a></p>
+                    <p><a href="http://www.lylc.gov.cn/" target="_blank" ><i class="fa fa-caret-right mr5"></i>老城区人民政府</a></p>
+                    <p><a href="http://www.lyd.com.cn/" target="_blank" ><i class="fa fa-caret-right mr5"></i>洛阳网</a></p>
                 </div>
             </div>
         </div>
-        <p class="copyright">版权说明</p>
+        <p class="copyright about"> Copyright © 2022 LYLC All rights reserved.</p>
+    `;
+    // 管理端菜单
+    var menuManContent = `
+        <a href="/index/home/index" class="module" id="1">
+            <span>首页</span>
+        </a>
+        <a href="#" class="module" id="2">
+            <span>账号审核</span>
+        </a>
+        <a href="#" class="module" id="3">
+            <span>板块管理</span>
+        </a>
+        <a href="#" class="module" id="4">
+            <span>帖子审核</span>
+        </a>
+        <a href="#" class="module" id="5">
+            <span>诉求回复</span>
+        </a>
+        <a href="#" class="module" id="6">
+            <span>面审即享审核</span>
+        </a>
+        <a href="/departmentManage" class="module" id="7">
+            <span>部门管理</span>
+        </a>
+        <a href="/accountManage" class="module" id="8">
+            <span>内部账号管理</span>
+        </a>
     `;
     // 头部
     if ($("header").length > 0) {
@@ -340,7 +308,7 @@ $(document).ready(function() {
     }
 })
 
-// 选中对应的客户端菜单
+// 选中对应的菜单
 function focusMenu(id) {
     $("#menu").find(".module").removeClass("active");
     $("#menu").find(".module#"+id).addClass("active");
@@ -358,4 +326,39 @@ function focusManMenu(id) {
     }, 0);
 }
 
+// 回到顶部
+$(function(){
+    $("body").append('<div class="actGotop"><a href="javascript:;" title="返回顶部"><i class="fa fa-angle-up"></i><b>TOP</b></a></div>');
+    $(window).scroll(function() {
+        if($(window).scrollTop() >= 100){
+            $('.actGotop').fadeIn(300);
+        }else{
+            $('.actGotop').fadeOut(300);
+        }
+    });
+    $('.actGotop').click(function(){
+        $('html,body').animate({scrollTop: '0px'}, 800);});
+});
+
+
+function exit(){
+    if(confirm("确定退出平台？")){
+        $.ajax({
+            type: "POST",
+            url: "/exit",
+            dataType: "text",
+            success: function(msg){
+                if(msg=="0"){
+                    //退出成功，刷新当前页面
+                    location.reload();
+                }else{
+                    alert("退出失败，请重试");
+                }
+            },
+            error: function(xml, mess){
+                alert("通讯失败，请重试！");
+            }
+        });
+    }
+}
 

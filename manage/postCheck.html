@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>洛阳市老城区民营经济服务平台</title>
+    <link rel="stylesheet" type="text/css" href="/plugin/basic/css/min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/page.css" />
+    <script src="/plugin/basic/js/min.js"></script>
+    <script src="/js/jquery.validate.min.js"></script>
+    <script src="/js/common.js"></script>
+    <style>
+        .form-group{margin-bottom: 25px;}
+    </style>
+</head>
+<body>
+<header></header>
+<article>
+    <div class="container pr">
+        <div class="content">
+            <div class="menu manMenu" id="manMenu"></div>
+            <div class="cur-post mt20 mb50">
+                <i class="fa fa-home mr5 f18"></i>
+                <span>当前位置：</span>
+                <a href="/index/home/index">首页</a>
+                <span class="c999"> > </span><span>帖子审核</span>
+
+            </div>
+            <div class="module-info">
+                <div class="mb5">
+                    <button type="button" class="btn btn-primary btn-sm" onclick="aggree()">审核通过</button>
+                    <button type="button" class="btn btn-primary btn-sm ml5" onclick="refuse()">驳回</button>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th class="tc"><input onchange="selectAll(this)" name="all" type="checkbox"></th>
+                            <th>模块名称</th><th>标题</th>
+                            <th>发布人</th><th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody id="accountList"></tbody>
+                    </table>
+                </div>
+                <div class="page tc mt30" id="pageBox"></div>
+            </div>
+        </div>
+    </div>
+</article>
+<footer></footer>
+<script>
+    $(document).ready(function() {
+        focusManMenu(4);
+        getNews(1);
+
+        // 代理绑定表体中checkbox的change事件
+        $("body").on("change", "[name=select]", function() {
+            if ($(this).prop("checked") && $("[name=select]:checked").length == $("[name=select]").length) {
+                $("[name=all]").prop("checked", true);
+            } else {
+                $("[name=all]").prop("checked", false);
+            }
+        });
+    });
+
+    // 全选或者全不选
+    function selectAll(el) {
+        if ($(el).prop("checked")) {
+            $("[name=select]").prop("checked", true);
+        } else {
+            $("[name=select]").prop("checked", false);
+        }
+    }
+
+    // 获取部门列表
+    function getNews(page) {
+        // ajax
+        // 拼装部门列表
+        spellDepartmentList([
+            {id: 1, name: "乡村振兴", title: "asdadsasf", person: "asdadsasf"},
+            {id: 2, name: "城乡结合", title: "asdadsasf", person: "asdadsasf"},
+            {id: 3, name: "自主创业", title: "asdadsasf", person: "asdadsasf"}
+        ]);
+        // 渲染分页
+        laypage({
+            cont: "pageBox"
+            ,pages: 7 //总页数，从服务端得到
+            ,curr: 1 //当前页，从服务端得到
+            ,jump: function(obj, first){ //触发分页后的回调
+                if(!first){ //一定要加此判断，否则初始时会无限刷新
+                    getNews(obj.curr);
+                }
+            }
+            ,skip: true //是否开启跳页
+            ,skin: '#982042' //加载内置皮肤，也可以直接赋值16进制颜色值，如:#c00
+            ,groups: 7 //连续显示分页数
+        });
+    }
+
+    // 拼装部门列表
+    function spellDepartmentList(list) {
+        var newsHtml = "";
+        newsHtml = list.map(item => {
+            return `<tr>
+                <td class="tc"><input name="select" value="${item.id}" type="checkbox"></td>
+                <td>${item.name}</td>
+                <td>${item.title}</td>
+                <td>${item.person}</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" href="#" target="_blank">详情</a>
+                </td>
+                </tr>
+            `;
+        }).join("");
+        $("#accountList").html(newsHtml);
+    }
+
+    // 审核通过
+    function aggree() {
+    }
+
+    // 审核不通过
+    function refuse() {
+    }
+
+    // 获取选中的数据id
+    function getSelectIds() {
+        var ids = [];
+        $("[name=select]").each(function() {
+            if ($(this).prop("checked")) {
+                ids.push($(this).val());
+            }
+        });
+        return ids.join();
+    }
+</script>
+</body>
+</html>

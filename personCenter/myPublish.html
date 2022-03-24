@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>洛阳市老城区民营经济服务平台</title>
+    <link rel="stylesheet" type="text/css" href="/plugin/basic/css/min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/page.css" />
+    <script src="/plugin/basic/js/min.js"></script>
+    <script src="/js/jquery.validate.min.js"></script>
+    <script src="/js/common.js"></script>
+    <style>
+        .step-box{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .step-box > .step{
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            background-color: var(--main-light);
+            color: #fff;
+            cursor: pointer;
+        }
+        .step-box > .step:hover{background-color: var(--main-deep);}
+        .step-box > .step.active{background-color: var(--main); color: #fff;}
+    </style>
+</head>
+<body>
+<header></header>
+<article>
+    <div class="container pr">
+        <div class="content">
+            <div class="menu" id="menu"></div>
+            <div class="cur-post mt20 mb50">
+                <i class="fa fa-home mr5 f18"></i>
+                <span>当前位置：</span>
+                <a href="/home/home.html">首页</a>
+                <span class="c999"> > </span><span>个人中心</span>
+            </div>
+            <div class="module-info">
+                <div class="step-box mb20">
+                    <a class="step active" href="#">
+                        <span>我的发布</span>
+                    </a>
+                    <a class="step" href="#">
+                        <span>我的账号</span>
+                    </a>
+                </div>
+                <div class="news-box">
+                    <a class="news" href="/policyAdvocacy/detail.html">
+                        <i class="fa fa-caret-right mr5"></i><span>中央一号文件要点速读</span>
+                        <span class="fr">[2022-02-22]</span>
+                    </a>
+                    <a class="news" href="#">
+                        <i class="fa fa-caret-right mr5"></i><span>俄军已控制基辅附近一处空军基地</span>
+                        <span class="fr">[2022-02-22]</span>
+                    </a>
+                    <a class="news" href="#">
+                        <i class="fa fa-caret-right mr5"></i><span>冬奥会带来的开学第一课</span>
+                        <span class="fr">[2022-02-22]</span>
+                    </a>
+                    <a class="news" href="#">
+                        <i class="fa fa-caret-right mr5"></i><span>乌克兰总统宣布与俄罗斯断交</span>
+                        <span class="fr">[2022-02-22]</span>
+                    </a>
+                    <a class="news" href="#">
+                        <i class="fa fa-caret-right mr5"></i><span>在乌中国留学生车上贴的国旗被偷</span>
+                        <span class="fr">[2022-02-22]</span>
+                    </a>
+                </div>
+                <div class="page tc mt30" id="pageBox"></div>
+            </div>
+        </div>
+    </div>
+</article>
+<footer></footer>
+<script>
+    $(document).ready(function() {
+        focusMenu(1);
+        getNews(1, 10);
+    });
+
+    // 获取消息列表
+    function getNews(page, limit) {
+        // ajax
+        // 拼装消息列表
+        // spellNewsList([]);
+        // 渲染分页
+        laypage({
+            cont: "pageBox"
+            ,pages: 10 //总页数，从服务端得到
+            ,curr: 2 //当前页，从服务端得到
+            ,jump: function(obj, first){ //触发分页后的回调
+                if(!first){ //一定要加此判断，否则初始时会无限刷新
+                    getNews(obj.page, obj.limit);
+                }
+            }
+            ,skip: true //是否开启跳页
+            ,skin: '#982042' //加载内置皮肤，也可以直接赋值16进制颜色值，如:#c00
+            ,groups: 7 //连续显示分页数
+        });
+    }
+
+    // 拼装消息列表
+    function spellNewsList(list) {
+        var newsHtml = "";
+        newsHtml = list.map(item => {
+            return `
+                <a class="news" href="#">
+                    <i class="fa fa-caret-right mr5"></i><span>${item.name}</span>
+                    <span class="fr">[${item.date}]</span>
+                </a>
+            `;
+        }).join("");
+        $(".news-box").html(newsHtml);
+    }
+
+</script>
+</body>
+</html>
