@@ -1168,3 +1168,34 @@ footer .copyright{text-align: center; padding: 5px; background-color: var(--main
   }
   .actGotop a:hover{background-size: 100%;}
 }
+
+/*评论区*/
+.comment-box {
+  margin-top: 50px;
+  padding-top: 50px;
+  border-top: 2px solid #efefef;
+}
+.comment-box .comment{
+  display: flex;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px dashed #efefef;
+}
+.comment-box .comment .right p{
+  margin-bottom: 3px;
+}
+.comment-box .comment .right p .time{
+  color: #999;
+  margin-left: 10px;
+  font-size: 12px;
+}
+.comment-box .comment .right .comment-content{
+  letter-spacing: 0.5px;
+  color: #565656;
+}
+.comment-box .user-img{
+  width: 55px;
+  height: 55px;
+  margin-right: 10px;
+}
+.comment-box .des span{color: #999;}

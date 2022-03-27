@@ -38,6 +38,41 @@
                     <p>张致宁认为，第27条和28条对旅行社和酒店都有明确指向。与“旅游业纾困扶持措施”中的其他条款不同的是，这两条细分项从市场主体的角度出发，通过放宽政府采购住宿、会议、餐饮等服务项目的门槛，鼓励机关企事业单位将工会活动、会展活动交由旅行社承接等方式来帮助酒店和旅行社等旅游企业拓宽收入来源。</p>
                 </div>
             </div>
+            <!-- 评论区 -->
+            <div class="comment-box">
+                <div class="comment">
+                    <img src="/img/unknow.png" class="user-img"/>
+                    <div class="right">
+                        <p><b>张之洞</b><span class="time">2021-03-21 09:15:26</span></p>
+                        <div class="comment-content">
+                            哈说不定覅巴哈死哦对方巴斯夫八十八地方是否尽快哈四分阿斯蒂芬较好时机地方
+                        </div>
+                    </div>
+                </div>
+                <div class="comment">
+                    <img src="/img/unknow.png" class="user-img"/>
+                    <div class="right">
+                        <p><b>张之洞</b><span class="time">2021-03-21 09:15:26</span></p>
+                        <div class="comment-content">
+                            哈说不定覅巴哈死哦对方巴斯夫八十八地方是否尽快哈四分阿斯蒂芬较好时机地方
+                        </div>
+                    </div>
+                </div>
+                <div class="comment">
+                    <img src="/img/unknow.png" class="user-img"/>
+                    <div class="right">
+                        <p><b>张之洞</b><span class="time">2021-03-21 09:15:26</span></p>
+                        <div class="comment-content">
+                            哈说不定覅巴哈死哦对方巴斯夫八十八地方是否尽快哈四分阿斯蒂芬较好时机地方
+                        </div>
+                    </div>
+                </div>
+                <div class="des">登录后参与讨论：<span>(网友评论仅供网友表达个人看法，并不表明本站同意其观点或证实其描述。)</span></div>
+                <form id="sendComment">
+                    <textarea class="form-control" name="comment" rows="5" placeholder="请输入内容，最多200字"></textarea>
+                    <div class="tc mt20"><button type="button" class="btn btn-primary" onclick="send()">发送</button></div>
+                </form>
+            </div>
         </div>
     </div>
 </article>
@@ -46,6 +81,32 @@
     $(document).ready(function() {
         focusMenu(4);
     });
+
+    // 发送
+    function send() {
+        if(!verify().form()) {
+            return;
+        }
+    }
+    // 表单校验
+    function verify() {
+        return $("#sendComment").validate({
+            rules: {
+                comment: {
+                    required: true,
+                    maxlength: 200
+                }
+            },
+            messages: {
+                comment: {
+                    required: "请输入评论内容",
+                    maxlength: "最长不超过200个字"
+                }
+            }
+        })
+    }
+
+    verify();
 
 </script>
 </body>
